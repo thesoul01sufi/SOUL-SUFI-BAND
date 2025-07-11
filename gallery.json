@@ -1,0 +1,34 @@
+{
+  "images": [
+    "gallery/image1.jpg",
+    "gallery/image2.jpg",
+    "gallery/image3.jpg",
+    "gallery/image4.jpg",
+    "gallery/image5.jpg",
+    "gallery/image6.jpg",
+    "gallery/image7.jpg",
+    "gallery/image8.jpg",
+    "gallery/image9.jpg",
+    "gallery/image10.jpg",
+    "gallery/image11.jpg"
+  ],
+  "videos": [
+    "gallery/video1.mov",
+    "gallery/video2.mov",
+    "gallery/video3.mov",
+    "gallery/video4.mov",
+    "gallery/video5.mov",
+    "gallery/video6.mov",
+    "gallery/video7.mov",
+    "gallery/video8.mov",
+    "gallery/video9.mov",
+    "gallery/video10.mov",
+    "gallery/video11.mov",
+    "gallery/video12.mov",
+    "gallery/video13.mov",
+    "gallery/video14.mov",
+    "gallery/video15.mov",
+    "gallery/video16.mov",
+    "gallery/video17.mov"
+  ]
+}

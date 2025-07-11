@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Company - Soul Sufi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #e6f7ff, #fff6fb);
+      color: #111;
+    }
+    header {
+      background: linear-gradient(-45deg, #ff00cc, #3333ff, #ffcc00, #00ffff);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      padding: 1rem 2rem;
+      color: white;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 0 25px rgba(255, 0, 200, 0.5);
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .company-section {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 50px auto;
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    .text-section {
+      flex: 1 1 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .vision-box, .mission-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .vision-box {
+      border-left: 6px solid #00bcd4;
+      box-shadow: 0 0 12px rgba(0, 188, 212, 0.2);
+    }
+
+    .mission-box {
+      border-left: 6px solid #ff9800;
+      box-shadow: 0 0 12px rgba(255, 152, 0, 0.2);
+    }
+
+    .core-values {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .core-box {
+      background: linear-gradient(to top, #fdfbfb, #ebedee);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.08);
+      max-width: 240px;
+      flex: 1 1 200px;
+      transition: transform 0.3s;
+      text-align: center;
+    }
+
+    .core-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    }
+
+    .core-box h4 {
+      font-size: 1.2rem;
+      color: #8e24aa;
+      margin-bottom: 10px;
+    }
+
+    .core-box p {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .slideshow {
+      flex: 1 1 400px;
+      max-width: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      height: 500px;
+      position: relative;
+    }
+
+    .slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow img.active {
+      opacity: 1;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>Soul Sufi | Our Company</header>
+
+  <section class="company-section">
+    <!-- LEFT SIDE - TEXT -->
+    <div class="text-section">
+      <div class="vision-box">
+        <h3 style="color: #00bcd4;">🎯 Vision</h3>
+        <p>Our <strong>vision</strong> for <strong>Soul Sufi</strong> is to become a leading voice in the global music scene, blending ancient Sufi traditions with modern-day innovation and spirit. We aim to create music that not only entertains but heals, connects, and uplifts souls across cultures.</p>
+      </div>
+
+      <div class="mission-box">
+        <h3 style="color: #ff9800;">🚀 Mission</h3>
+        <p>Our <strong>mission</strong> is to consistently create and perform <strong>innovative, high-quality music</strong> that speaks to the heart. We strive to preserve the essence of Sufi poetry while introducing it to newer generations in refreshing, soulful formats—both live and digital.</p>
+      </div>
+
+      <h3 style="color: #8e24aa; text-align: center;">💎 Core Values</h3>
+      <div class="core-values">
+        <div class="core-box">
+          <h4>Authenticity</h4>
+          <p>Genuine self-expression in every note and lyric.</p>
+        </div>
+        <div class="core-box">
+          <h4>Innovation</h4>
+          <p>Exploring new sounds and creative approaches.</p>
+        </div>
+        <div class="core-box">
+          <h4>Passion</h4>
+          <p>Driven by love for music — the heartbeat of every song.</p>
+        </div>
+        <div class="core-box">
+          <h4>Resonance</h4>
+          <p>Creating emotional connection with listeners.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE - SLIDESHOW -->
+    <div class="slideshow" id="slideshow">
+      <img src="image 1.jpg" class="active" alt="Slide 1">
+      <img src="image 2.jpg" alt="Slide 2">
+      <img src="image 3.jpeg" alt="Slide 3">
+      <img src="image 4.jpeg" alt="Slide 4">
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Soul Sufi Band. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // JS slideshow logic
+    const slides = document.querySelectorAll("#slideshow img");
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, 4000); // Change every 4 seconds
+  </script>
+</body>
+</html>

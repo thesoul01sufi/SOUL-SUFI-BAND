@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soul Sufi - Band Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  text-align: center;
+  background-color: #002366; /* Royal Blue */
+  color: #ffffff;
+}
+
+
+    @keyframes royalBlueWave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+
+  
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background: linear-gradient(-45deg, #ff00cc, #03035a, #ffcc00, #00ffff);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-shadow: 0 0 25px rgba(255, 0, 200, 0.5);
+      box-sizing: border-box;
+    }
+
+    header img {
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #fff, 0 0 25px #ff00cc;
+    }
+
+    nav {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      transition: background 0.3s, border-radius 0.3s;
+    }
+
+    .nav-links li a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #222;
+      display: none;
+      flex-direction: column;
+      padding: 0;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+      min-width: 160px;
+    }
+
+    .dropdown-content li a {
+      padding: 10px 20px;
+      display: block;
+      color: #f1c40f;
+    }
+
+    .dropdown-content li a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: flex;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 140px 20px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .welcome-line {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #ff0080, #7928ca);
+      text-shadow: 0 0 8px #ffffff, 0 0 15px #ff00cc;
+      animation: fadeSlide 1.5s ease-out both;
+    }
+
+    @keyframes fadeSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .video-slider {
+      max-width: 800px;
+      width: 100%;
+      margin: 30px auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .video-slider video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .video-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #111;
+      margin-top: 10px;
+      text-shadow: 0 0 5px #ff00cc;
+    }
+
+    .typewriter {
+      margin-top: 10px;
+      font-size: 1.3rem;
+      color: #111;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #ff00cc;
+      width: 0ch;
+      animation: typing 5s steps(60, end) forwards, blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0ch; }
+      to { width: 60ch; }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #ff00cc; }
+    }
+
+    .about-section {
+      max-width: 800px;
+      background: linear-gradient(to right, #fff8e7, #e9f9df, #dff6ff);
+      border-radius: 16px;
+      padding: 40px 25px;
+      color: #000;
+      margin-top: 40px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-section h2 {
+      color: #ff00cc;
+      margin-bottom: 20px;
+      text-shadow: 0 0 12px #f1c40f;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+      border-left: 3px solid #f1c40f;
+      margin-top: 30px;
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background-color: #f1c40f;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+
+    .timeline-item h4 {
+      margin: 0;
+      color: #111;
+      font-weight: 600;
+    }
+
+    .timeline-item p {
+      margin: 4px 0 0;
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+  animation: fadeInUp 1.2s ease both;
+}
+.service-box {
+  
+  color: 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.service-box {
+  background-color: #ffffff;
+  flex: 1 1 240px;
+  border-radius: 16px;
+  padding: 25px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  text-align: center;
+  color: #002366;
+  font-size: 0.95rem;
+  max-width: 250px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: bounceIn 1s ease-in-out;
+}
+
+.service-box h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #222;
+  text-shadow: 0 0 4px #fff;
+}
+
+.service-box:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 0 30px rgba(255, 0, 200, 0.3);
+}
+
+/* Background animation (global) */
+body {
+  background: linear-gradient(-45deg, #ffe0f0, #d1f7ff, #f6ffe0, #ffe6e6);
+  background-size: 500% 500%;
+  animation: waveBG 15s ease infinite;
+}
+
+@keyframes waveBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-10px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-heading {
+  margin-top: 100px;
+  margin-bottom: 30px;
+  text-align: center;
+  animation: fadeInDown 1.2s ease-in-out both;
+}
+
+.band-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #2b1abbda;
+  text-shadow: 0 0 10px #fff, 0 0 20px #d59e37;
+  margin-bottom: 10px;
+}
+
+.typewriter-big {
+  font-size: 1.5rem;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #ff00cc;
+  width: 0ch;
+  animation: typingBig 6s steps(50, end) forwards, blink-caret-big 0.75s step-end infinite;
+}
+
+@keyframes typingBig {
+  from { width: 0ch; }
+  to { width: 50ch; }
+}
+
+@keyframes blink-caret-big {
+  from, to { border-color: transparent; }
+  50% { border-color: #ff00cc; }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  </style>
+</head>
+<body>
+  
+
+
+  <!-- ✅ HEADER WITH NAVIGATION -->
+  <header>
+    <img src="logo.png" alt="Soul Sufi Logo">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li class="dropdown">
+          <a href="#">About Us ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="testimonials.html" target="_self">About Us</a></li>
+            <li><a href="our-company.html" target="_blank">Our Company</a></li>
+
+            <li><a href="privacy-rights.html" target="_blank">Privacy Rights</a></li>
+          </ul>
+        </li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="#clients">Our Clients</a></li>
+        <li><a href="#contact-footer">Contact Us</a></li>
+        <li><a href="livebands.html">Live Bands</a></li>
+        <li><a href="#journey">Journey</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="main-content">
+    
+
+    <div class="hero-heading">
+      <h1 class="band-title">🎶 Soul Sufi Band 🎶</h1>
+      <div class="typewriter-big">🎶 Feel the rhythm,finding your inner peace in Sufi's embrace🕊️</div>
+    </div>
+    
+    <div class="video-slider">
+      <video class="active" src="video1.mp4" controls playsinline></video>
+    </div>
+    
+    <div class="about-section">
+      <h2>About Soul Sufi</h2>
+      <p>Soul Sufi is not just a band — it's a journey of musical devotion. Our performances blend the mysticism of Sufi poetry with the vibrancy of contemporary rhythms, creating a powerful and unforgettable atmosphere.</p>
+
+      <h3 style="color:#111; margin-top: 25px;">Common Instruments:</h3>
+      <ul style="text-align: left; max-width: 700px; margin: 0 auto; padding-left: 20px; color:#333; font-size: 0.95rem; line-height: 1.6;">
+        <li><strong>Vocals:</strong> Lead and chorus.</li>
+        <li><strong>Harmonium:</strong> Provides melodic backing and drone.</li>
+        <li><strong>Tabla/Dholak:</strong> Provide intricate rhythmic foundations.</li>
+        <li><strong>Guitar (Acoustic/Electric):</strong> Adds melodic lines, harmony, or rhythmic strumming, especially in fusion setups.</li>
+        <li><strong>Bass Guitar:</strong> Provides harmonic depth.</li>
+        <li><strong>Drum Kit:</strong> For a fuller, more contemporary rhythm section.</li>
+        <li><strong>Other Traditional Instruments:</strong> May include Sarangi, Flute (Bansuri), or instruments like the Daff/Daf.</li>
+      </ul>
+
+      <p style="margin-top: 20px; font-style: italic; color: #444;">
+        "More than music, it's a journey within. We are Soul Sufi."<br/>
+        "We don't just play notes; we unveil emotions. The sound of Soul Sufi."
+      </p>
+    </div>
+
+    <div class="about-section" id="journey">
+      <h2>Journey of the Band</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>🎤 2019 – Formation</h4>
+          <p>The band was founded by 3 musicians united by Sufi roots and live performance passion.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>🏆 2020 – First Festival</h4>
+          <p>Live debut at college fests and Sufi nights around Delhi-NCR.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>🌐 2021 – Virtual Vibes</h4>
+          <p>Performed online concerts for global audiences during lockdowns.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>🎶 2023 – 100+ Shows</h4>
+          <p>Crossed 100 private & public performances across cities.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>🚀 2025 – Originals & Tour</h4>
+          <p>Set to launch original Sufi-fusion tracks and first international tour!</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="about-section" id="services" style="background: transparent; margin-top: 40px;">
+      <h2 style="color: #ff00cc; text-shadow: 0 0 12px #f1c40f; font-size: 2.2rem;">✨ Our Services ✨</h2>
+      <div class="services-container">
+    
+        <div class="service-box" style="background: #ffe0f0;">
+          <h3>🎤 Touring</h3>
+          <p>Pan-India Sufi & Fusion music tours in over 15 cities.</p>
+          <strong>18+ Tours Done</strong>
+        </div>
+    
+        <div class="service-box" style="background: #e0f7ff;">
+          <h3>🎪 Event Organize</h3>
+          <p>Successfully managed Sufi events and fests across venues.</p>
+          <strong>25+ Events Managed</strong>
+        </div>
+    
+        <div class="service-box" style="background: #fef7e0;">
+          <h3>🎵 Live Performance</h3>
+          <p>Power-packed shows at colleges, weddings, and private gigs.</p>
+          <strong>100+ Performances</strong>
+        </div>
+    
+        <div class="service-box" style="background: #e6ffe6;">
+          <h3>🎶 Concerts</h3>
+          <p>Headlined both intimate Sufi nights & large-scale concerts.</p>
+          <strong>35+ Concerts Done</strong>
+        </div>
+    
+      </div>
+    </div>
+    
+
+  </div>
+</div>
+
+
+  </div>
+  <footer style="background: linear-gradient(to right, #1a1a1a, #0f0f0f); color: #fff; padding: 30px 20px 10px; font-family: 'Poppins', sans-serif;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 1200px; margin: auto; border-top: 2px solid #444; padding-top: 20px;">
+  
+      <!-- BIG LOGO ON LEFT SIDE -->
+      <div style="flex: 1 1 320px; display: flex; flex-direction: column; align-items: center; text-align: center; min-width: 280px;">
+        <div style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 4px solid #ffd700; box-shadow: 0 0 20px #ffd700; margin-bottom: 15px;">
+          <img src="logo.png" alt="Soul Sufi Logo" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h2 style="color: #ffd700; margin: 0 0 8px; font-size: 1.8rem;">Soul Sufi</h2>
+        <p style="margin: 0 0 5px; font-style: italic; font-size: 0.95rem; color: #ffefb0;">Where we offer:</p>
+        <ul style="list-style: none; padding-left: 0; margin: 6px 0 0; line-height: 1.6; color: #ddd; font-size: 0.9rem;">
+          <li>🎉 Weddings & Receptions</li>
+          <li>🏢 Corporate Events</li>
+          <li>🏫 College Fests & Cultural Nights</li>
+          <li>🎧 Private Gigs, Cafés, Lounge Shows</li>
+          <li>🎵 Devotional & Sufi Mehfils</li>
+        </ul>
+      </div>
+  
+      <!-- CONTACT SECTION -->
+      <div style="flex: 1 1 300px; margin-top: 5px; min-width: 250px;">
+        <h2 style="color: #ffd700; font-size: 1.2rem; margin-bottom: 8px;">📞 Contact Us</h2>
+        <hr style="border: none; border-top: 2px solid #ffd700; width: 50px; margin-bottom: 10px;">
+        <p style="margin: 4px 0;"><strong>Owner:</strong> <a href="tel:+916307532084" style="color:#ffefb0; text-decoration: none;">+91 63075 32084</a></p>
+        <p style="margin: 4px 0;"><strong>CEO:</strong> <a href="tel:+9191402792114" style="color:#ffefb0; text-decoration: none;">+91 91402 792114</a></p>
+        <p style="margin: 4px 0;"><strong>Email:</strong> <a href="mailto:thesoulsufi.01@gmail.com" style="color:#ffefb0; text-decoration: none;">thesoulsufi.01@gmail.com</a></p>
+        <p style="margin: 4px 0;"><strong>WhatsApp:</strong> <a href="https://wa.me/918765011548" target="_blank" style="color:#ffefb0; text-decoration: none;">+91 87650 11548</a></p>
+      </div>
+  
+      <!-- SOCIAL ICONS -->
+      <div style="flex: 1 1 200px; text-align: center; margin-top: 5px;">
+        <h3 style="color: #ffd700; font-size: 1.2rem;">Connect</h3>
+        <div style="margin-top: 10px;">
+          <a href="https://www.instagram.com/thesoulsufi_0.1" target="_blank" style="margin: 0 6px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="28" alt="Instagram"
+                 style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.2)'; this.style.filter='drop-shadow(0 0 6px #ff00cc)'"
+                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none'">
+          </a>
+          <a href="mailto:thesoulsufi.01@gmail.com" style="margin: 0 6px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28" alt="Email"
+                 style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.2)'; this.style.filter='drop-shadow(0 0 6px #ffd700)'"
+                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none'">
+          </a>
+          <a href="https://wa.me/918765011548" target="_blank" style="margin: 0 6px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="28" alt="WhatsApp"
+                 style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.2)'; this.style.filter='drop-shadow(0 0 6px #25d366)'"
+                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none'">
+          </a>
+          <a href="https://drive.google.com/drive/folders/1If0JW6EPIiTfE5WLTnrIh2OX1A6z-hPM" target="_blank" style="margin: 0 6px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="28" alt="YouTube"
+                 style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.2)'; this.style.filter='drop-shadow(0 0 6px red)'"
+                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none'">
+          </a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- COPYRIGHT -->
+    <p style="margin-top: 18px; font-size: 0.85rem; text-align: center; color: #aaa;">
+      <img src="logo.png" alt="Soul Sufi Logo" style="height: 18px; vertical-align: middle; margin-right: 6px;">
+      © 2025 Soul Sufi Band. All rights reserved.
+    </p>
+  </footer>
+  
+  
+</body>
+</html>

@@ -8,505 +8,968 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     html, body {
-      
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
-      text-align: center;
-    }
-
-    body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
   overflow-x: hidden;
-  text-align: center;
-  background-color: #002366; /* Royal Blue */
-  color: #ffffff;
+  background-color: #0b0014; /* 🔵 Dark purple background */
+  color: #f0f0f0;
 }
 
 
-    @keyframes royalBlueWave {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-
-
-
-  
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 70px;
-      background: linear-gradient(-45deg, #ff00cc, #03035a, #ffcc00, #00ffff);
-      background-size: 400% 400%;
-      animation: gradientShift 10s ease infinite;
-      z-index: 1001;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      box-shadow: 0 0 25px rgba(255, 0, 200, 0.5);
-      box-sizing: border-box;
-    }
-
-    header img {
-      height: 50px;
-      border-radius: 50%;
-      box-shadow: 0 0 15px #fff, 0 0 25px #ff00cc;
-    }
-
-    nav {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-      gap: 25px;
-      align-items: center;
-    }
-
-    .nav-links li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 12px;
-      transition: background 0.3s, border-radius 0.3s;
-    }
-
-    .nav-links li a:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 6px;
-    }
-
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #222;
-      display: none;
-      flex-direction: column;
-      padding: 0;
-      border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      z-index: 1000;
-      min-width: 160px;
-    }
-
-    .dropdown-content li a {
-      padding: 10px 20px;
-      display: block;
-      color: #f1c40f;
-    }
-
-    .dropdown-content li a:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: flex;
-    }
-
-    @keyframes gradientShift {
+    @keyframes darkBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+  
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+   .logo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 4px solid #ffd700;
+  box-shadow: 0 0 25px #ffd700, 0 0 50px #ff00cc;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Curtain effect inside logo */
+.logo::before,
+.logo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #0b0014; /* same as your page bg */
+  z-index: 2;
+  transition: transform 1.8s ease-in-out;
+}
+
+/* Left curtain */
+.logo::before {
+  left: 0;
+  transform: translateX(0);
+  animation: logoCurtainLeft 2s ease-out forwards;
+}
+
+/* Right curtain */
+.logo::after {
+  right: 0;
+  transform: translateX(0);
+  animation: logoCurtainRight 2s ease-out forwards;
+}
+
+/* Keyframes */
+@keyframes logoCurtainLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes logoCurtainRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+
+    @keyframes curtainReveal {
+  0% {
+    transform: scaleY(0) translateY(-100%);
+    opacity: 0;
+  }
+  60% {
+    transform: scaleY(1.1) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+
+    .nav-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  padding-left: 80px;
+  text-transform: uppercase;
+  position: relative;
+  flex-wrap: wrap;
+
+}
+.nav-menu a, .dropdown-toggle {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  text-shadow: 0 0 10px #ff00cc, 0 0 20px #ffd700;
+}
+
+    .nav-menu a:hover, .dropdown-toggle:hover{
+      color: #ffd700;
+      text-decoration: none;
+      transition: 0.3s ease-in-out;
+       text-shadow: 0 0 15px #ffd700, 0 0 30px #ff00cc;
+      transform: scale(1.1);
+    }
 
     .main-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 140px 20px 60px;
-      position: relative;
-      z-index: 1;
+      padding: 60px 15px 30px;
+      text-align: center;
     }
+   
+  .nav-ellipse {
+  padding: 10px 20px;
+  border: 2px solid #ffd700;
+  border-radius: 50px;
+  box-shadow: 0 0 12px #ff00cc, 0 0 30px #ffd700;
+  transition: all 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.05);
+}
 
-    .welcome-line {
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, #ff0080, #7928ca);
-      text-shadow: 0 0 8px #ffffff, 0 0 15px #ff00cc;
-      animation: fadeSlide 1.5s ease-out both;
-    }
+.nav-ellipse:hover {
+   color: #ffd700;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ffd700, 0 0 30px #ff00cc;
+}
 
-    @keyframes fadeSlide {
-      0% {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.nav-ellipse a,
+.nav-ellipse .dropdown-toggle {
+  color:  #00ffe5 !important;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: inline-block;
+ text-shadow: 0 0 10px #19ba62, 0 0 20px #0ff;
+ 
+}
+
+.dropdown-menu a {
+  font-size: 1rem;
+  color: #fff;
+  text-shadow: 0 0 10px #ff00cc, 0 0 20px #ffd700;
+}
+
+    .band-title {
+  font-size: 7.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color:  #b0d8e9;/* 💖 Pink main heading */
+  text-shadow: 0 0 10px #c2f9ff, 
+    0 0 20px #b006a5,     0 0 10px #370339;
+}
+.tagline {
+  font-size: 2.4rem;
+  color: #ffd6f6;
+  max-width: 100vw;
+  margin: 0 auto;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #ff69b4;
+  width: 0;
+  text-shadow: 0 0 12px #ff69b4;
+  animation: typing 7s steps(60, end) forwards, blink 0.75s step-end infinite;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Blinking cursor */
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: #ff69b4; }
+}
+
+
+
 
     .video-slider {
       max-width: 800px;
-      width: 100%;
-      margin: 30px auto;
+      margin: 50px auto;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
     }
 
     .video-slider video {
       width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      border-radius: 12px;
+      height: auto;
+      display: block;
     }
 
-    .video-title {
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: #111;
-      margin-top: 10px;
-      text-shadow: 0 0 5px #ff00cc;
-    }
-
-    .typewriter {
-      margin-top: 10px;
-      font-size: 1.3rem;
-      color: #111;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid #ff00cc;
-      width: 0ch;
-      animation: typing 5s steps(60, end) forwards, blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0ch; }
-      to { width: 60ch; }
-    }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: #ff00cc; }
-    }
-
-    .about-section {
-      max-width: 800px;
-      background: linear-gradient(to right, #fff8e7, #e9f9df, #dff6ff);
-      border-radius: 16px;
-      padding: 40px 25px;
-      color: #000;
-      margin-top: 40px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .about-section h2 {
-      color: #ff00cc;
-      margin-bottom: 20px;
-      text-shadow: 0 0 12px #f1c40f;
-    }
-
-    .timeline {
-      position: relative;
-      padding-left: 20px;
-      border-left: 3px solid #f1c40f;
-      margin-top: 30px;
-    }
-
-    .timeline-item {
-      margin-bottom: 30px;
-      position: relative;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -9px;
-      top: 5px;
-      width: 12px;
-      height: 12px;
-      background-color: #f1c40f;
-      border-radius: 50%;
-      border: 2px solid #fff;
-    }
-
-    .timeline-item h4 {
-      margin: 0;
-      color: #111;
-      font-weight: 600;
-    }
-
-    .timeline-item p {
-      margin: 4px 0 0;
-      font-size: 0.95rem;
-      color: #333;
-    }
-    .services-container {
+   .about-section {
+  background: transparent;
+  padding: 40px 20px;
+  margin: 5ch auto;
+  max-width: 1200px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 30px;
-  animation: fadeInUp 1.2s ease both;
-}
-.service-box {
-  
-  color: 
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 25px; /* 👈 This adds the gap between About and Video */
+  border: none;
+  box-shadow: none;
 }
 
-.service-box {
-  background-color: #ffffff;
-  flex: 1 1 240px;
-  border-radius: 16px;
-  padding: 25px 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  text-align: center;
-  color: #002366;
+.about-text {
+  flex: 1 1 45%;
+  text-align: left;
+}
+
+.about-text h2 {
+  color: #ffd700;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 12px #fff, 0 0 24px #ff00cc;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  color: #ddd;
+  line-height: 1.5;
+}
+
+.instrument-list {
+  list-style: disc;
+  margin-top: 15px;
+  padding-left: 20px;
   font-size: 0.95rem;
-  max-width: 250px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  animation: bounceIn 1s ease-in-out;
+  color: #ccc;
 }
 
-.service-box h3 {
-  margin-top: 0;
-  font-size: 1.4rem;
-  color: #222;
-  text-shadow: 0 0 4px #fff;
+.instrument-list li {
+  margin-bottom: 6px;
 }
 
-.service-box:hover {
-  transform: scale(1.05) rotate(1deg);
-  box-shadow: 0 0 30px rgba(255, 0, 200, 0.3);
+.about-video {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-/* Background animation (global) */
-body {
-  background: linear-gradient(-45deg, #ffe0f0, #d1f7ff, #f6ffe0, #ffe6e6);
-  background-size: 500% 500%;
-  animation: waveBG 15s ease infinite;
+.about-video video {
+  width: 360px;
+  height: 640px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+  object-fit: cover;
 }
 
-@keyframes waveBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+    .about-section h2 {
+      color: #ffd700;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 12px #fff, 0 0 24px #ff00cc;
+    }
+
+    .about-section p {
+      font-size: 1.1rem;
+      color: #ddd;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .dropdown {
+  position: relative;
 }
 
-@keyframes bounceIn {
+.dropdown-menu {
+  position: absolute;
+  background-color: #0b0014;
+  border: 1px solid #ffd700;
+  border-radius: 8px;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  top: 30px;
+  left: 0;
+  z-index: 999;
+}
+
+.dropdown-menu li {
+  list-style: none;
+  margin: 5px 0;
+}
+
+.dropdown-menu a {
+  font-size: 1rem;
+  color: #fff;
+  text-shadow: 0 0 10px #ff00cc, 0 0 20px #ffd700;
+  padding: 6px 10px;
+  display: block;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+.dropdown-menu a:hover {
+  color: #ffd700;
+  text-shadow: 0 0 15px #ffd700, 0 0 30px #ff00cc;
+  transform: scale(2.00);
+}
+
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+    .photo-slideshow {
+  margin-top: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.slide-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  animation: fadeSlideshow 18s infinite;
+  transition: 0.6s ease-in-out;
+  object-fit: cover;
+}
+
+@keyframes fadeSlideshow {
+  0%, 20% { content: url('slideshow 1.jpeg'); }
+  33%, 46% { content: url('slideshow 8.jpeg');}
+  33%, 46% { content: url('slideshow 10.jpeg');}
+  33%, 46% { content: url('slideshow 11.jpeg');}
+  33%, 46% { content: url('slideshow 12.jpeg');}
+  33%, 46% { content: url('slideshow 13.jpeg');}
+  25%, 45% { content: url('slideshow 2.jpeg'); }
+  50%, 70% { content: url('slideshow 3.jpeg'); }
+  55%, 79% { content: url('slideshow 6.jpeg');}
+  65%, 80% { content: url('slideshow 7.jpeg');}
+  75%, 95% { content: url('slideshow 4.jpeg'); }
+  85%, 78% { content: url('slideshow 9.jpeg');}
+  100% { content: url('slideshow 5.jpeg'); }
+}
+.passport-photo-strip {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.passport-track {
+  display: flex;
+  animation: scrollInfinite 60s linear infinite;
+  width: max-content;
+}
+
+.passport-track img {
+  width: 360px; /* 1080 / 3 */
+  height: 450px; /* 1350 / 3 */
+  background-color: #090e29; /* 💖 Pink background */
+  object-fit: cover;
+  margin: 0 10px;
+  border: 6px solid #090e29;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+  flex-shrink: 0;
+}
+@keyframes scrollInfinite {
   0% {
-    opacity: 0;
-    transform: scale(0.8) translateY(30px);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(1.05) translateY(-10px);
+    transform: translateX(0);
   }
   100% {
-    transform: scale(1) translateY(0);
+    transform: translateX(-50%);
   }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.hero-heading {
-  margin-top: 100px;
-  margin-bottom: 30px;
-  text-align: center;
-  animation: fadeInDown 1.2s ease-in-out both;
+/* JOURNEY SECTION */
+#journey {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  max-width: 1200px;
+  margin: 60px auto;
+  position: relative; /* enables layering */
+  padding-right: 0;
 }
 
-.band-title {
-  font-size: 3.2rem;
-  font-weight: 800;
-  color: #2b1abbda;
-  text-shadow: 0 0 10px #fff, 0 0 20px #d59e37;
-  margin-bottom: 10px;
+.journey-left {
+  max-width: 60%;
+  padding-right: 30px;
+  z-index: 2;
+  position: relative;
 }
 
-.typewriter-big {
-  font-size: 1.5rem;
-  color: #222;
-  white-space: nowrap;
+.journey-left h2 {
+  color: #ffd700;
+  font-size: 2.2rem;
+  text-align: left;
+  margin-bottom: 20px;
+  text-shadow: 0 0 12px #fff, 0 0 24px #ff00cc;
+}
+
+
+.timeline-dropdown {
+  width: 100%;
+}
+
+.timeline-item {
+  border-left: 4px solid #ff69b4;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.timeline-item h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #ffd6f6;
+}
+
+.timeline-content {
+  max-height: 0;
   overflow: hidden;
-  border-right: 3px solid #ff00cc;
-  width: 0ch;
-  animation: typingBig 6s steps(50, end) forwards, blink-caret-big 0.75s step-end infinite;
+  transition: max-height 0.5s ease;
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-top: 10px;
 }
 
-@keyframes typingBig {
-  from { width: 0ch; }
-  to { width: 50ch; }
+.timeline-item.active .timeline-content {
+  max-height: 200px;
 }
 
-@keyframes blink-caret-big {
-  from, to { border-color: transparent; }
-  50% { border-color: #ff00cc; }
+/* Floating video overlay */
+
+
+
+
+.horizontal-timeline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 80px 40px;
+  position: relative;
+  gap: 80px;
+  scroll-behavior: smooth;
 }
 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
+.timeline-connector {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: #ff69b4;
+  z-index: 0;
+}
+
+    .wave-timeline {
+    display: flex;
+    overflow-x: auto;
+    gap: 100px;
+    padding: 100px 40px;
+    scroll-behavior: smooth;
+    position: relative;
+    justify-content: flex-start;
   }
-  to {
+
+  .wave-block {
+    flex-shrink: 0;
+    width: 200px;
+    position: relative;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .wave-block.visible {
     opacity: 1;
     transform: translateY(0);
   }
+
+  .wave-shape {
+    width: 200px;
+    height: 90px;
+    border-radius: 50% / 100%;
+    transform: scaleY(1.5);
+    background-color: #ff69b4;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+    margin-bottom: 10px;
+  }
+
+  .wave-block:nth-child(2) .wave-shape { background-color: #42506f; }
+  .wave-block:nth-child(3) .wave-shape { background-color: #1de3c3; }
+  .wave-block:nth-child(4) .wave-shape { background-color: #1f8bcc; }
+  .wave-block:nth-child(5) .wave-shape { background-color: #7648df; }
+
+  .wave-label {
+    width: 2px;
+    height: 60px;
+    background-color: #fff;
+    margin: 0 auto;
+  }
+
+  .wave-content {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #eee;
+    margin-top: 10px;
+    min-height: 140px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.1);
+  }
+
+  .wave-block:nth-child(even) {
+    margin-top: 100px;
+  }
+
+  .wave-block:nth-child(odd) {
+    margin-bottom: 100px;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Mobile View */
+  @media screen and (max-width: 768px) {
+    .wave-timeline {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .wave-block {
+      width: 90%;
+    }
+
+    .wave-shape {
+      width: 100%;
+      height: 70px;
+    }
+
+    .wave-label {
+      height: 30px;
+    }
+
+    .wave-block:nth-child(even),
+    .wave-block:nth-child(odd) {
+      margin: 0;
+    }
+  }
+   .services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 40px;
+    padding: 20px;
+  }
+
+  .service-box {
+    width: 400px;
+    height: 280px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 30px;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.4s ease;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .service-box::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    background: url('https://cdn-icons-png.flaticon.com/512/727/727245.png') no-repeat center;
+    background-size: 80px 80px;
+    opacity: 0.1;
+    animation: float 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .service-box:hover {
+    transform: scale(1.05);
+  }
+  @media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .logo {
+    width: 140px;
+    height: 140px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 0;
+    font-size: 1.3rem;
+  }
+
+  .nav-ellipse {
+    padding: 8px 16px;
+    border-radius: 30px;
+  }
+
+  .band-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .tagline {
+    font-size: 1.4rem;
+    max-width: 95vw;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #b0d8e9;
+    width: 0;
+    animation: typing 6s steps(60, end) forwards, blink 0.75s step-end infinite;
+  }
+
+  .about-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .about-text {
+    text-align: center;
+    flex: 1 1 100%;
+  }
+
+  .about-video {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .about-video video {
+    width: 90vw;
+    height: auto;
+  }
+
+  .passport-photo-strip {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .passport-track {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .passport-track img {
+    width: 140px;
+    height: 180px;
+    margin: 5px;
+  }
+
+  .wave-timeline {
+    flex-direction: column;
+    gap: 50px;
+    padding: 40px 20px;
+    align-items: center;
+  }
+
+  .wave-block {
+    width: 90%;
+    margin: 0;
+  }
+
+  .services-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-box {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+    font-size: 1rem;
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  footer > div {
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+  }
+
+  footer img {
+    margin: auto;
+  }
+
+  .dropdown-menu {
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+  }
 }
 
-  </style>
+
+</style>
+
+</style>
 </head>
+<script>
+ 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.wave-block').forEach(block => observer.observe(block));
+</script>
+
 <body>
-  
-
-
-  <!-- ✅ HEADER WITH NAVIGATION -->
   <header>
-    <img src="logo.png" alt="Soul Sufi Logo">
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li class="dropdown">
-          <a href="#">About Us ▾</a>
-          <ul class="dropdown-content">
-            <li><a href="testimonials.html" target="_self">About Us</a></li>
-            <li><a href="our-company.html" target="_blank">Our Company</a></li>
+ 
+    <img src="logo.png" alt="Soul Sufi Logo" class="logo">
+   <nav class="nav-menu">
+  <span class="nav-ellipse"><a href="#home">Home</a></span>
 
-            <li><a href="privacy-rights.html" target="_blank">Privacy Rights</a></li>
-          </ul>
-        </li>
-        <li><a href="categories.html">Categories</a></li>
-        <li><a href="#clients">Our Clients</a></li>
-        <li><a href="#contact-footer">Contact Us</a></li>
-        <li><a href="livebands.html">Live Bands</a></li>
-        <li><a href="#journey">Journey</a></li>
-      </ul>
-    </nav>
+  <div class="dropdown nav-ellipse">
+    <a href="#" class="dropdown-toggle">About Us <i class="fas fa-caret-down"></i></a>
+    <ul class="dropdown-menu">
+      <li><a href="our-company.html">Our Company</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+    </ul>
+  </div>
+
+  <span class="nav-ellipse"><a href="#contact">Contact Us</a></span>
+  <span class="nav-ellipse"><a href="#categories">Categories</a></span>
+  <span class="nav-ellipse"><a href="#livebands">Live Bands</a></span>
+  <span class="nav-ellipse"><a href="#journey">Journey</a></span>
+</nav>
+
+
   </header>
 
   <div class="main-content">
+    <h1 class="band-title">Soul Sufi Band</h1>
+     <p class="tagline">A journey of sound and soul — where Sufi meets celebration and music meets meaning.</p>
+  </div>
+
+ <div class="passport-photo-strip">
+  <div class="passport-track">
+    <img src="slideshow 1.jpeg" alt="1" />
+    <img src="slideshow 2.jpeg" alt="2" />
+    <img src="slideshow 3.jpeg" alt="3" />
+    <img src="slideshow 4.jpeg" alt="4" />
+    <img src="slideshow 5.jpeg" alt="5" />
+    <img src="slideshow 6.jpeg" alt="6" />
+    <img src="slideshow 7.jpeg" alt="7" />
+    <img src="slideshow 8.jpeg" alt="8" />
+    <img src="slideshow 9.jpeg" alt="9" />
+    <img src="slideshow 10.jpeg" alt="10" />
+    <img src="slideshow 11.jpeg" alt="11" />
+    <img src="slideshow 12.jpeg" alt="12" />   
+    <img src="slideshow 13.jpeg" alt="13" />
+    
+     <img src="slideshow 1.jpeg" alt="1" />
+    <img src="slideshow 2.jpeg" alt="2" />
+    <img src="slideshow 3.jpeg" alt="3" />
+    <img src="slideshow 4.jpeg" alt="4" />
+    <img src="slideshow 5.jpeg" alt="5" />
+    <img src="slideshow 6.jpeg" alt="6" />
+    <img src="slideshow 7.jpeg" alt="7" />
+    <img src="slideshow 8.jpeg" alt="8" />
+    <img src="slideshow 9.jpeg" alt="9" />
+    <img src="slideshow 10.jpeg" alt="10" />
+    <img src="slideshow 11.jpeg" alt="11" />
+    <img src="slideshow 12.jpeg" alt="12" />   
+    <img src="slideshow 13.jpeg" alt="13" />
+</div>
+
+</div>
+
+   
+
+
     
 
-    <div class="hero-heading">
-      <h1 class="band-title">🎶 Soul Sufi Band 🎶</h1>
-      <div class="typewriter-big">🎶 Feel the rhythm,finding your inner peace in Sufi's embrace🕊️</div>
-    </div>
-    
-    <div class="video-slider">
-      <video class="active" src="video1.mp4" controls playsinline></video>
-    </div>
-    
-    <div class="about-section">
-      <h2>About Soul Sufi</h2>
-      <p>Soul Sufi is not just a band — it's a journey of musical devotion. Our performances blend the mysticism of Sufi poetry with the vibrancy of contemporary rhythms, creating a powerful and unforgettable atmosphere.</p>
 
-      <h3 style="color:#111; margin-top: 25px;">Common Instruments:</h3>
-      <ul style="text-align: left; max-width: 700px; margin: 0 auto; padding-left: 20px; color:#333; font-size: 0.95rem; line-height: 1.6;">
-        <li><strong>Vocals:</strong> Lead and chorus.</li>
-        <li><strong>Harmonium:</strong> Provides melodic backing and drone.</li>
-        <li><strong>Tabla/Dholak:</strong> Provide intricate rhythmic foundations.</li>
-        <li><strong>Guitar (Acoustic/Electric):</strong> Adds melodic lines, harmony, or rhythmic strumming, especially in fusion setups.</li>
-        <li><strong>Bass Guitar:</strong> Provides harmonic depth.</li>
-        <li><strong>Drum Kit:</strong> For a fuller, more contemporary rhythm section.</li>
-        <li><strong>Other Traditional Instruments:</strong> May include Sarangi, Flute (Bansuri), or instruments like the Daff/Daf.</li>
-      </ul>
 
-      <p style="margin-top: 20px; font-style: italic; color: #444;">
-        "More than music, it's a journey within. We are Soul Sufi."<br/>
-        "We don't just play notes; we unveil emotions. The sound of Soul Sufi."
-      </p>
-    </div>
+    <!-- About section and rest continues as before... -->
+        <div class="about-section">
+  <div class="about-text">
+    <h2>About Soul Sufi</h2>
+    <p>A Soul Sufi band is a musical group that performs Sufi music with a strong emphasis on emotional depth and often a contemporary or fusion twist. While there isn't one specific band universally known by this name, the term describes a style that blends the devotional and mystical aspects of Sufism with soulful vocal delivery and diverse instrumentation. At its heart, Sufi music is a spiritual expression, inspired by the poetry of revered figures like Rumi and Hafiz, aimed at fostering a divine connection through love and devotion. The "soul" element highlights the profound, heartfelt, and often trance-inducing nature of the music, designed to evoke deep feelings of peace and spiritual unity. Modern Soul Sufi bands frequently fuse traditional Indian instruments such as the harmonium, tabla, and sitar with Western instruments like guitars, keyboards, and drums, creating a rich, dynamic sound that appeals to a wide audience. Their lyrics typically revolve around themes of divine love, enlightenment, and unity, primarily sung in languages like Urdu, Persian, Punjabi, or Hindi. These bands are celebrated for their powerful, often improvisational vocals and captivating live performances, which aim to create an immersive spiritual experience for listeners</p>
 
-    <div class="about-section" id="journey">
+    <ul class="instrument-list">
+      <li><strong>Vocals:</strong> Lead and chorus.</li>
+      <li><strong>Harmonium:</strong> Provides melodic backing and drone.</li>
+      <li><strong>Tabla/Dholak:</strong> Provide intricate rhythmic foundations.</li>
+      <li><strong>Guitar (Acoustic/Electric):</strong> Adds melodic lines or rhythm.</li>
+      <li><strong>Bass Guitar:</strong> Provides harmonic depth.</li>
+      <li><strong>Drum Kit:</strong> For a fuller rhythm section.</li>
+      <li><strong>Other Instruments:</strong> Sarangi, Bansuri, Daf.</li>
+    </ul>
+
+    <p style="margin-top: 20px; font-style: italic; color: #aaa;">
+      "More than music, it's a journey within. We are Soul Sufi."<br/>
+      "We don't just play notes; we unveil emotions. The sound of Soul Sufi."
+    </p>
+  </div>
+
+  <div class="about-video">
+    <video src="video1.mp4" autoplay muted loop playsinline></video>
+  </div>
+</div>
+
+  <div class="about-section" id="journey" style="background: transparent; box-shadow: none; border: none;">
+
       <h2>Journey of the Band</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <h4>🎤 2019 – Formation</h4>
-          <p>The band was founded by 3 musicians united by Sufi roots and live performance passion.</p>
-        </div>
-        <div class="timeline-item">
-          <h4>🏆 2020 – First Festival</h4>
-          <p>Live debut at college fests and Sufi nights around Delhi-NCR.</p>
-        </div>
-        <div class="timeline-item">
-          <h4>🌐 2021 – Virtual Vibes</h4>
-          <p>Performed online concerts for global audiences during lockdowns.</p>
-        </div>
-        <div class="timeline-item">
-          <h4>🎶 2023 – 100+ Shows</h4>
-          <p>Crossed 100 private & public performances across cities.</p>
-        </div>
-        <div class="timeline-item">
-          <h4>🚀 2025 – Originals & Tour</h4>
-          <p>Set to launch original Sufi-fusion tracks and first international tour!</p>
-        </div>
-      </div>
+      <div class="wave-timeline">
+  <div class="wave-block">
+    <div class="wave-shape">2019</div>
+    <div class="wave-label"></div>
+    <div class="wave-content">
+      <strong>Formation</strong>
+      <p>The band was founded by 3 musicians united by Sufi roots.</p>
     </div>
-    
-    <div class="about-section" id="services" style="background: transparent; margin-top: 40px;">
-      <h2 style="color: #ff00cc; text-shadow: 0 0 12px #f1c40f; font-size: 2.2rem;">✨ Our Services ✨</h2>
-      <div class="services-container">
-    
-        <div class="service-box" style="background: #ffe0f0;">
-          <h3>🎤 Touring</h3>
-          <p>Pan-India Sufi & Fusion music tours in over 15 cities.</p>
-          <strong>18+ Tours Done</strong>
-        </div>
-    
-        <div class="service-box" style="background: #e0f7ff;">
-          <h3>🎪 Event Organize</h3>
-          <p>Successfully managed Sufi events and fests across venues.</p>
-          <strong>25+ Events Managed</strong>
-        </div>
-    
-        <div class="service-box" style="background: #fef7e0;">
-          <h3>🎵 Live Performance</h3>
-          <p>Power-packed shows at colleges, weddings, and private gigs.</p>
-          <strong>100+ Performances</strong>
-        </div>
-    
-        <div class="service-box" style="background: #e6ffe6;">
-          <h3>🎶 Concerts</h3>
-          <p>Headlined both intimate Sufi nights & large-scale concerts.</p>
-          <strong>35+ Concerts Done</strong>
-        </div>
-    
-      </div>
+  </div>
+  <div class="wave-block">
+    <div class="wave-shape">2020</div>
+    <div class="wave-label"></div>
+    <div class="wave-content">
+      <strong>First Sufi Fest</strong>
+      <p>Performed at college fests and cultural nights.</p>
     </div>
-    
+  </div>
+  <div class="wave-block">
+    <div class="wave-shape">2021</div>
+    <div class="wave-label"></div>
+    <div class="wave-content">
+      <strong>Virtual Vibes</strong>
+      <p>Online concerts during global lockdowns.</p>
+    </div>
+  </div>
+  <div class="wave-block">
+    <div class="wave-shape">2023</div>
+    <div class="wave-label"></div>
+    <div class="wave-content">
+      <strong>100+ Shows</strong>
+      <p>Performed at weddings, lounges, and concerts.</p>
+    </div>
+  </div>
+  <div class="wave-block">
+    <div class="wave-shape">2025</div>
+    <div class="wave-label"></div>
+    <div class="wave-content">
+      <strong>Global Tour</strong>
+      <p>Original Sufi tracks and first international tour!</p>
+    </div>
+  </div>
+</div>
 
+    </div>
   </div>
 </div>
 
 
+      
+    </div>
+    
+<div class="about-section" id="services" style="background: transparent; margin-top: 40px; text-align: left; position: relative;">
+  <h2 style="color: #c4a20c; font-size: 2.2rem; text-align: left;">✨ Our Services ✨</h2>
+
+  <div class="services-container">
+      <div class="service-box" style="background: rgba(255, 153, 204, 0.1); color: #fff; border: 1px solid #ff99cc; box-shadow: 0 0 15px #ff99cc, 0 0 30px #ff99cc; backdrop-filter: blur(10px); border-radius: 10px;">
+        <h3>🎤 Touring</h3>
+        <p>Pan-India Sufi & Fusion music tours in over 15 cities.</p>
+        <strong>18+ Tours Done</strong>
+      </div>
+
+      <div class="service-box" style="background: rgba(170, 255, 255, 0.1); color: #000; border: 1px solid #aaffff; box-shadow: 0 0 15px #aaffff, 0 0 30px #aaffff; backdrop-filter: blur(10px); border-radius: 10px;">
+        <h3>🎪 Event Organize</h3>
+        <p>Successfully managed Sufi events and fests across venues.</p>
+        <strong>25+ Events Managed</strong>
+      </div>
+
+      <div class="service-box" style="background: rgba(182, 255, 182, 0.1); color: #000; border: 1px solid #b6ffb6; box-shadow: 0 0 15px #b6ffb6, 0 0 30px #b6ffb6; backdrop-filter: blur(10px); border-radius: 10px;">
+        <h3>🎵 Live Performance</h3>
+        <p>Power-packed shows at colleges, weddings, and private gigs.</p>
+        <strong>100+ Performances</strong>
+      </div>
+
+      <div class="service-box" style="background: rgba(255, 255, 153, 0.1); color: #000; border: 1px solid #ffff99; box-shadow: 0 0 15px #ffff99, 0 0 30px #ffff99; backdrop-filter: blur(10px); border-radius: 10px;">
+        <h3>🎶 Concerts</h3>
+        <p>Headlined both intimate Sufi nights & large-scale concerts.</p>
+        <strong>35+ Concerts Done</strong>
+      </div>
   </div>
-  <footer style="background: linear-gradient(to right, #1a1a1a, #0f0f0f); color: #fff; padding: 30px 20px 10px; font-family: 'Poppins', sans-serif;">
+</div>
+
+
+
+
+
+
+  </div>
+  <footer style="background: linear-gradient(to right, #c79ab9, #c46cb1); color: #fff; padding: 30px 20px 10px; font-family: 'Poppins', sans-serif;">
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 1200px; margin: auto; border-top: 2px solid #444; padding-top: 20px;">
   
       <!-- BIG LOGO ON LEFT SIDE -->
@@ -569,7 +1032,6 @@ body {
       © 2025 Soul Sufi Band. All rights reserved.
     </p>
   </footer>
-  
-  
+  </div>
 </body>
 </html>

@@ -129,9 +129,33 @@
       text-align: center;
       font-size: 0.9rem;
     }
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 1.5;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
   </style>
 </head>
 <body>
+  <div class="video-bg">
+    <video autoplay loop playsinline muted>
+      <source src="IMG_6607 (1).mp4" type="video/mp4">
+    </video>
+  </div>
+
   <header>Soul Sufi | Our Company</header>
 
   <section class="company-section">

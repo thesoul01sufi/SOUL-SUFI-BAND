@@ -23,7 +23,12 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-  
+   @font-face {
+      font-family: 'Classic rock band';
+      src: url('fonts/Classic rock band.Otf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
     header {
       display: flex;
       justify-content: space-between;
@@ -125,7 +130,7 @@
     }
 
     .main-content {
-      padding: 60px 15px 30px;
+      padding: 30px 15px 10px;
       text-align: center;
     }
    
@@ -160,15 +165,21 @@
   color: #fff;
   text-shadow: 0 0 10px #ff00cc, 0 0 20px #ffd700;
 }
-
-    .band-title {
-  font-size: 7.2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color:  #b0d8e9;/* 💖 Pink main heading */
-  text-shadow: 0 0 10px #c2f9ff, 
-    0 0 20px #b006a5,     0 0 10px #370339;
+.band-title {
+  font-family: 'Classic rock band', cursive;
+  font-size: 8rem;
+  font-weight: normal;
+  background: linear-gradient(to right, #ff0080, #ffcc00, #00ffff, #ff00ff);
+  text-align: center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+  margin-bottom: 20px;
+  animation: calligraphyPulse 3s ease-in-out infinite;
 }
+
+
+
 .tagline {
   font-size: 2.4rem;
   color: #ffd6f6;
@@ -214,8 +225,8 @@
 
    .about-section {
   background: transparent;
-  padding: 40px 20px;
-  margin: 5ch auto;
+  padding: 20px 20px;
+  margin: 30px auto;
   max-width: 1200px;
   display: flex;
   flex-wrap: wrap;
@@ -229,19 +240,25 @@
 .about-text {
   flex: 1 1 45%;
   text-align: left;
+  padding-right: 20px;
 }
 
 .about-text h2 {
-  color: #ffd700;
-  font-size: 2.2rem;
+  color: #e0c068;
+  font-size: 3rem;
   margin-bottom: 20px;
+  text-align: center;
   text-shadow: 0 0 12px #fff, 0 0 24px #ff00cc;
 }
 
-.about-text p {
+.about-text p, .about-text ul,
+.about-text li {
+  text-align: justify;
   font-size: 1.05rem;
   color: #ddd;
-  line-height: 1.5;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+  word-spacing: 1px;
 }
 
 .instrument-list {
@@ -259,13 +276,13 @@
 .about-video {
   flex: 1 1 50%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
 }
 
 .about-video video {
   width: 360px;
-  height: 640px;
+  height: auto;
   border-radius: 16px;
   box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
   object-fit: cover;
@@ -273,8 +290,8 @@
 
     .about-section h2 {
       color: #ffd700;
-      font-size: 2.2rem;
-      margin-bottom: 20px;
+      font-size: 3.2rem;
+      margin-bottom: 3.33m0px;
       text-shadow: 0 0 12px #fff, 0 0 24px #ff00cc;
     }
 
@@ -364,7 +381,7 @@
 }
 .passport-photo-strip {
   width: 100vw;
-  height: 100vh;
+  height: auto;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -372,6 +389,8 @@
   background: transparent;
   position: relative;
   z-index: 10;
+   padding: 10px 0;
+  margin: 10px 0;
 }
 
 .passport-track {
@@ -406,9 +425,9 @@
   box-shadow: none;
   border: none;
   max-width: 1200px;
-  margin: 60px auto;
+  margin: 30px auto;
   position: relative; /* enables layering */
-  padding-right: 0;
+  padding-right: 20px 0;
 }
 
 .journey-left {
@@ -606,6 +625,7 @@
     border-radius: 20px;
     padding: 30px;
     font-size: 1.1rem;
+    margin-bottom: 10px;
     font-family: 'Poppins', sans-serif;
     transition: transform 0.3s ease, box-shadow 0.4s ease;
     background: transparent;
@@ -653,13 +673,14 @@
     height: 140px;
   }
 
-  .nav-menu {
-    flex-direction: column;
+   .nav-menu {
+    flex-direction: row;  /* ✅ Stay horizontal */
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
-    padding-left: 0;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    padding: 10px;
   }
-
   .nav-ellipse {
     padding: 8px 16px;
     border-radius: 30px;
@@ -742,6 +763,8 @@
     padding: 20px;
     font-size: 1rem;
   }
+ 
+
 
   footer {
     text-align: center;
@@ -762,6 +785,24 @@
     background-color: transparent;
     box-shadow: none;
     border: none;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  footer > div {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  footer ul {
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  footer ul li {
+    margin-bottom: 6px;
   }
 }
 
@@ -795,12 +836,13 @@
     <ul class="dropdown-menu">
       <li><a href="our-company.html">Our Company</a></li>
       <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="privacy-rights.html">Privacy & Rights</a></li>
     </ul>
   </div>
 
   <span class="nav-ellipse"><a href="#contact">Contact Us</a></span>
-  <span class="nav-ellipse"><a href="#categories">Categories</a></span>
-  <span class="nav-ellipse"><a href="#livebands">Live Bands</a></span>
+  <span class="nav-ellipse"><a href="categories.html">Categories</a></span>
+  <span class="nav-ellipse"><a href=livebands.html>Live Bands</a></span>
   <span class="nav-ellipse"><a href="#journey">Journey</a></span>
 </nav>
 
@@ -856,7 +898,7 @@
         <div class="about-section">
   <div class="about-text">
     <h2>About Soul Sufi</h2>
-    <p>A Soul Sufi band is a musical group that performs Sufi music with a strong emphasis on emotional depth and often a contemporary or fusion twist. While there isn't one specific band universally known by this name, the term describes a style that blends the devotional and mystical aspects of Sufism with soulful vocal delivery and diverse instrumentation. At its heart, Sufi music is a spiritual expression, inspired by the poetry of revered figures like Rumi and Hafiz, aimed at fostering a divine connection through love and devotion. The "soul" element highlights the profound, heartfelt, and often trance-inducing nature of the music, designed to evoke deep feelings of peace and spiritual unity. Modern Soul Sufi bands frequently fuse traditional Indian instruments such as the harmonium, tabla, and sitar with Western instruments like guitars, keyboards, and drums, creating a rich, dynamic sound that appeals to a wide audience. Their lyrics typically revolve around themes of divine love, enlightenment, and unity, primarily sung in languages like Urdu, Persian, Punjabi, or Hindi. These bands are celebrated for their powerful, often improvisational vocals and captivating live performances, which aim to create an immersive spiritual experience for listeners</p>
+    <p>A Soul Sufi band is a musical group that performs Sufi music with a strong emphasis on emotional depth and often a contemporary or fusion twist. While there isn't one specific band universally known by this name, the term describes a style that blends the devotional and mystical aspects of Sufism with soulful vocal delivery and diverse instrumentation. </p>
 
     <ul class="instrument-list">
       <li><strong>Vocals:</strong> Lead and chorus.</li>
@@ -875,7 +917,7 @@
   </div>
 
   <div class="about-video">
-    <video src="video1.mp4" autoplay muted loop playsinline></video>
+    <video src="video1.mp4" controls loop playsinline></video>
   </div>
 </div>
 
@@ -933,34 +975,43 @@
       
     </div>
     
-<div class="about-section" id="services" style="background: transparent; margin-top: 40px; text-align: left; position: relative;">
-  <h2 style="color: #c4a20c; font-size: 2.2rem; text-align: left;">✨ Our Services ✨</h2>
 
+<div class="about-section" id="services" style="background: transparent; margin-top: 40px; text-align: left; position: relative;">
+  
+  
+  <h2 style="color: #fefefe; font-size: 2.2rem; text-align: left;">✨ Our Services ✨</h2>
+ 
   <div class="services-container">
-      <div class="service-box" style="background: rgba(255, 153, 204, 0.1); color: #fff; border: 1px solid #ff99cc; box-shadow: 0 0 15px #ff99cc, 0 0 30px #ff99cc; backdrop-filter: blur(10px); border-radius: 10px;">
+      <div class="service-box" style="background: rgba(50, 74, 180, 0.982); color: #db1b1b; border: 1px solid #d91515; box-shadow: 0 0 15px #ff99cc, 0 0 30px #d67474; backdrop-filter: blur(10px); border-radius: 10px;">
         <h3>🎤 Touring</h3>
         <p>Pan-India Sufi & Fusion music tours in over 15 cities.</p>
         <strong>18+ Tours Done</strong>
       </div>
 
-      <div class="service-box" style="background: rgba(170, 255, 255, 0.1); color: #000; border: 1px solid #aaffff; box-shadow: 0 0 15px #aaffff, 0 0 30px #aaffff; backdrop-filter: blur(10px); border-radius: 10px;">
+      <img src="live band 5.jpeg" alt="Sufi Band" 
+     style="position: absolute; top: 80px; right: -280px; width: 400px; height: auto; border-radius: 20px; box-shadow: 0 0 25px rgba(255, 255, 255, 0.4); z-index: 1;" />
+
+
+      <div class="service-box" style="background: rgba(58, 61, 231, 0.79); color: #d3e6d4; border: 1px solid #aaffff; box-shadow: 0 0 15px #aaffff, 0 0 30px #aaffff; backdrop-filter: blur(10px); border-radius: 10px;">
         <h3>🎪 Event Organize</h3>
         <p>Successfully managed Sufi events and fests across venues.</p>
         <strong>25+ Events Managed</strong>
       </div>
 
-      <div class="service-box" style="background: rgba(182, 255, 182, 0.1); color: #000; border: 1px solid #b6ffb6; box-shadow: 0 0 15px #b6ffb6, 0 0 30px #b6ffb6; backdrop-filter: blur(10px); border-radius: 10px;">
+      <div class="service-box" style="background: rgba(48, 48, 126, 0.731); color: #d2b3b3; border: 1px solid #cde2cd; box-shadow: 0 0 15px #b6ffb6, 0 0 30px #b6ffb6; backdrop-filter: blur(10px); border-radius: 10px;">
         <h3>🎵 Live Performance</h3>
         <p>Power-packed shows at colleges, weddings, and private gigs.</p>
         <strong>100+ Performances</strong>
       </div>
 
-      <div class="service-box" style="background: rgba(255, 255, 153, 0.1); color: #000; border: 1px solid #ffff99; box-shadow: 0 0 15px #ffff99, 0 0 30px #ffff99; backdrop-filter: blur(10px); border-radius: 10px;">
+      <div class="service-box" style="background: rgba(74, 214, 170, 0.664); color: #dca9a9; border: 1px solid #e1d2d1; box-shadow: 0 0 15px #ffff99, 0 0 30px #ffff99; backdrop-filter: blur(10px); border-radius: 10px;">
         <h3>🎶 Concerts</h3>
         <p>Headlined both intimate Sufi nights & large-scale concerts.</p>
         <strong>35+ Concerts Done</strong>
       </div>
+      
   </div>
+      
 </div>
 
 
@@ -968,70 +1019,84 @@
 
 
 
-  </div>
-  <footer style="background: linear-gradient(to right, #c79ab9, #c46cb1); color: #fff; padding: 30px 20px 10px; font-family: 'Poppins', sans-serif;">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; max-width: 1200px; margin: auto; border-top: 2px solid #444; padding-top: 20px;">
-  
-      <!-- BIG LOGO ON LEFT SIDE -->
-      <div style="flex: 1 1 320px; display: flex; flex-direction: column; align-items: center; text-align: center; min-width: 280px;">
-        <div style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 4px solid #ffd700; box-shadow: 0 0 20px #ffd700; margin-bottom: 15px;">
+
+
+  <footer style="
+  margin-top: 30px;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #fff;
+  padding: 40px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+  border-top: 2px solid #ff00cc;
+  box-shadow: 0 0 20px #ff00cc;
+">
+  <div style="max-width: 1200px; margin: auto;">
+
+    <!-- 🔹 FOUR COLUMNS: IN A ROW -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; text-align: center;">
+
+      <!-- 🌟 WHERE WE OFFER -->
+      <div style="flex: 1 1 220px; min-width: 180px;">
+        <div style="width: 100px; height: 100px; margin: 0 auto 10px; border-radius: 50%; overflow: hidden; border: 3px solid #ffd700; box-shadow: 0 0 15px #ffd700;">
           <img src="logo.png" alt="Soul Sufi Logo" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
-        <h2 style="color: #ffd700; margin: 0 0 8px; font-size: 1.8rem;">Soul Sufi</h2>
-        <p style="margin: 0 0 5px; font-style: italic; font-size: 0.95rem; color: #ffefb0;">Where we offer:</p>
-        <ul style="list-style: none; padding-left: 0; margin: 6px 0 0; line-height: 1.6; color: #ddd; font-size: 0.9rem;">
-          <li>🎉 Weddings & Receptions</li>
+        <h3 style="color: #ffef00; margin-bottom: 10px; text-shadow: 0 0 5px #ffef00;">Soul Sufi</h3>
+        <ul style="list-style: none; padding: 0; font-size: 0.85rem; color: #e0e0e0; line-height: 1.6;">
+          <li>🎉 Weddings</li>
           <li>🏢 Corporate Events</li>
-          <li>🏫 College Fests & Cultural Nights</li>
-          <li>🎧 Private Gigs, Cafés, Lounge Shows</li>
-          <li>🎵 Devotional & Sufi Mehfils</li>
+          <li>🏫 College Fests</li>
+          <li>🎧 Lounge Shows</li>
+          <li>🎵 Sufi Mehfils</li>
         </ul>
       </div>
-  
-      <!-- CONTACT SECTION -->
-      <div style="flex: 1 1 300px; margin-top: 5px; min-width: 250px;">
-        <h2 style="color: #ffd700; font-size: 1.2rem; margin-bottom: 8px;">📞 Contact Us</h2>
-        <hr style="border: none; border-top: 2px solid #ffd700; width: 50px; margin-bottom: 10px;">
-        <p style="margin: 4px 0;"><strong>Owner:</strong> <a href="tel:+916307532084" style="color:#ffefb0; text-decoration: none;">+91 63075 32084</a></p>
-        <p style="margin: 4px 0;"><strong>CEO:</strong> <a href="tel:+9191402792114" style="color:#ffefb0; text-decoration: none;">+91 91402 792114</a></p>
-        <p style="margin: 4px 0;"><strong>Email:</strong> <a href="mailto:thesoulsufi.01@gmail.com" style="color:#ffefb0; text-decoration: none;">thesoulsufi.01@gmail.com</a></p>
-        <p style="margin: 4px 0;"><strong>WhatsApp:</strong> <a href="https://wa.me/918765011548" target="_blank" style="color:#ffefb0; text-decoration: none;">+91 87650 11548</a></p>
+
+      <!-- 🔗 QUICK LINKS -->
+      <div style="flex: 1 1 180px; min-width: 160px;">
+        <h3 style="color: #00ffe7; margin-bottom: 10px; text-shadow: 0 0 8px #00ffe7;">Quick Links</h3>
+        <ul style="list-style: none; padding: 0; font-size: 0.85rem; line-height: 1.8;">
+          <li><a href="our-company.html" style="color: #ffefb0; text-decoration: none;">Our Company</a></li>
+          <li><a href="testimonials.html" style="color: #ffefb0; text-decoration: none;">Testimonials</a></li>
+          <li><a href="livebands.html" style="color: #ffefb0; text-decoration: none;">Live Bands</a></li>
+          <li><a href="#contact" style="color: #ffefb0; text-decoration: none;">Contact</a></li>
+        </ul>
       </div>
-  
-      <!-- SOCIAL ICONS -->
-      <div style="flex: 1 1 200px; text-align: center; margin-top: 5px;">
-        <h3 style="color: #ffd700; font-size: 1.2rem;">Connect</h3>
-        <div style="margin-top: 10px;">
+
+      <!-- 📱 CONNECT -->
+      <div style="flex: 1 1 180px; min-width: 160px;">
+        <h3 style="color: #ff66cc; margin-bottom: 10px; text-shadow: 0 0 6px #ff66cc;">Connect</h3>
+        <div>
           <a href="https://www.instagram.com/thesoulsufi_0.1" target="_blank" style="margin: 0 6px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="28" alt="Instagram"
-                 style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.2)'; this.style.filter='drop-shadow(0 0 6px #ff00cc)'"
-                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none'">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="24" alt="Instagram">
           </a>
           <a href="mailto:thesoulsufi.01@gmail.com" style="margin: 0 6px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="28" alt="Email"
-                 style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.2)'; this.style.filter='drop-shadow(0 0 6px #ffd700)'"
-                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none'">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="24" alt="Email">
           </a>
           <a href="https://wa.me/918765011548" target="_blank" style="margin: 0 6px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="28" alt="WhatsApp"
-                 style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.2)'; this.style.filter='drop-shadow(0 0 6px #25d366)'"
-                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none'">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="24" alt="WhatsApp">
           </a>
           <a href="https://drive.google.com/drive/folders/1If0JW6EPIiTfE5WLTnrIh2OX1A6z-hPM" target="_blank" style="margin: 0 6px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="28" alt="YouTube"
-                 style="transition: 0.3s;" onmouseover="this.style.transform='scale(1.2)'; this.style.filter='drop-shadow(0 0 6px red)'"
-                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none'">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="24" alt="YouTube">
           </a>
         </div>
       </div>
+
+      <!-- 📞 CONTACT -->
+      <div style="flex: 1 1 200px; min-width: 160px;">
+        <h3 style="color: #00ffff; margin-bottom: 10px; text-shadow: 0 0 6px #00ffff;">Contact</h3>
+        <p style="margin: 6px 0; font-size: 0.85rem;"><strong>Owner:</strong><br><a href="tel:+916307532084" style="color:#fff;">+91 63075 32084</a></p>
+        <p style="margin: 6px 0; font-size: 0.85rem;"><strong>CEO:</strong><br><a href="tel:+9191402792114" style="color:#fff;">+91 91402 792114</a></p>
+        <p style="margin: 6px 0; font-size: 0.85rem;"><strong>Email:</strong><br><a href="mailto:thesoulsufi.01@gmail.com" style="color:#fff;">thesoulsufi.01@gmail.com</a></p>
+      </div>
     </div>
-  
-    <!-- COPYRIGHT -->
-    <p style="margin-top: 18px; font-size: 0.85rem; text-align: center; color: #aaa;">
+
+    <!-- 🔒 COPYRIGHT -->
+    <p style="margin-top: 25px; font-size: 0.8rem; text-align: center; color: #aaa;">
       <img src="logo.png" alt="Soul Sufi Logo" style="height: 18px; vertical-align: middle; margin-right: 6px;">
       © 2025 Soul Sufi Band. All rights reserved.
     </p>
-  </footer>
   </div>
+</footer>
+
+  
 </body>
 </html>

@@ -7,12 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #78d9ba, #62cab7);
-      color: #111;
-    }
+    
 
     header {
       background: linear-gradient(-45deg, #08b8d7, #3333ff, #ffcc00, #00ffff);
@@ -21,7 +16,7 @@
       padding: 1rem 2rem;
       color: white;
       text-align: center;
-      font-size: 1.6rem;
+      font-size: 2rem;
       font-weight: bold;
       box-shadow: 0 0 25px rgba(255, 0, 200, 0.5);
     }
@@ -40,9 +35,10 @@
 
     .section h2 {
       text-align: center;
-      color: #ff00cc;
+      color: #68f908;
       margin-bottom: 30px;
-      text-shadow: 0 0 10px #f1c40f;
+      text-shadow: 0 0 10px #096fff;
+       font-size: 3rem;
     }
 
     .video-carousel {
@@ -104,9 +100,10 @@
   display: inline-block;
   background: linear-gradient(90deg, #ff00cc, #3333ff);
   color: #fff;
-  padding: 12px 20px;
+  padding: 12px 25px;
   border-radius: 30px;
   text-decoration: none;
+  font-size: 2rem;
   font-weight: bold;
   box-shadow: 0 0 15px rgba(255, 0, 200, 0.3);
   transition: 0.3s;
@@ -130,6 +127,7 @@
   color: #ff00cc;
   text-align: center;
   margin-bottom: 20px;
+   font-size: 3rem;
 }
 
 .testimonial-form input,
@@ -137,7 +135,7 @@
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  font-size: 1rem;
+  font-size: 1.3rem;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
@@ -148,7 +146,7 @@
   border: none;
   padding: 12px 24px;
   border-radius: 30px;
-  font-size: 1rem;
+  font-size: 2rem;
   cursor: pointer;
   margin-top: 10px;
   display: block;
@@ -158,32 +156,73 @@
 .testimonial-form button:hover {
   background: linear-gradient(90deg, #3333ff, #ff00cc);
 }
-.video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      opacity: 1.5;
-      overflow: hidden;
-      pointer-events: none;
-    }
 
-    .video-bg video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.background-watermark-slideshow {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.background-watermark-slideshow div {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fadeSlide 40s infinite;
+  filter:  blur(1.5px);
+}
+
+/* Timing each image to fade in and out */
+.background-watermark-slideshow div:nth-child(1) {
+  background-image: url('slideshow 6.jpeg');
+  animation-delay: 0s;
+}
+
+.background-watermark-slideshow div:nth-child(2) {
+  background-image: url('slideshow 9.jpeg');
+  animation-delay: 8s;
+}
+
+.background-watermark-slideshow div:nth-child(3) {
+  background-image: url('slideshow 8.jpeg');
+  animation-delay: 16s;
+}
+
+.background-watermark-slideshow div:nth-child(4) {
+  background-image: url('slideshow 4.jpeg');
+  animation-delay: 24s;
+}
+
+.background-watermark-slideshow div:nth-child(5) {
+  background-image: url('slideshow 5.jpeg');
+  animation-delay: 32s;
+}
+
+@keyframes fadeSlide {
+  0%, 100% { opacity: 0; }
+  10%, 25% { opacity: 1.00; } /* watermark-level fade in */
+  40% { opacity: 0; }
+}
+
 
   </style>
 </head>
 <body>
-  <div class="video-bg">
-    <video autoplay loop playsinline muted>
-      <source src="IMG_6607 (1).mp4" type="video/mp4">
-    </video>
-  </div>
+
+<div class="background-watermark-slideshow">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
 
   <header>Soul Sufi | Testimonials & Reviews</header>
 
@@ -196,6 +235,8 @@
       <video src="testimonial video2.mp4" controls></video>
       <video src="testimonial video3.mp4" controls></video>
       <video src="testimonial video4.mp4" controls></video>
+      <video src="testimonial video5.mp4" controls></video>
+      <video src="testimonial video6.mp4" controls></video>
     </div>
   </div>
 
@@ -203,22 +244,25 @@
     <h2>💬 Customer Reviews & Endorsements</h2>
     <div class="review-grid">
       <div class="review-card">
-        <h4>Anjali Gupta</h4>
+        <h4>Piyush Mishra</h4>
         <p>"Soul Sufi turned our wedding night into a magical memory. Guests are still raving about their energy!"</p>
       </div>
       <div class="review-card">
-        <h4>Rajveer Singh</h4>
-        <p>"We booked them for our college fest – it was Sufi meets rock and we absolutely loved every second!"</p>
+        <h4>Raj</h4>
+        <p>"Soul Sufi added pure magic to our evening. The vibe, the music, the aura — absolutely unforgettable!"</p>
       </div>
       <div class="review-card">
-        <h4>Meenal Joshi</h4>
+        <h4>Nayan Jaiswal</h4>
         <p>"I've followed Soul Sufi across 4 cities. Their vocals and dhol beats always give me goosebumps."</p>
       </div>
       <div class="review-card">
-        <h4>Arjun Patel</h4>
+        <h4>Akshay Kakkar</h4>
         <p>"Not just music – it's a spiritual experience. Perfect for devotional events and mehfils."</p>
       </div>
-      
+      <div class="review-card">
+        <h4>Divyanshu</h4>
+        <p>"Their performance at our corporate gala was the highlight of the night. A perfect fusion of energy and soul."</p>
+      </div>
     </div>
     <div style="text-align: center; margin: 60px 0 30px;">
       <a href="SoulSufi-Brochure.pdf" download class="download-btn" aria-label="Download Soul Sufi Band Brochure">

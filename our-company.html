@@ -7,172 +7,268 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #e6f7ff, #fff6fb);
-      color: #111;
-    }
-    header {
-      background: linear-gradient(-45deg, #ff00cc, #3333ff, #ffcc00, #00ffff);
-      background-size: 400% 400%;
-      animation: gradientShift 10s ease infinite;
-      padding: 1rem 2rem;
-      color: white;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      box-shadow: 0 0 25px rgba(255, 0, 200, 0.5);
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #a18cd1, #fbc2eb);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+  color: #111;
+  font-size: 1.25rem;
+  line-height: 1.9;
+  background-attachment: fixed;
+}
 
-    .company-section {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 50px auto;
-      gap: 30px;
-      padding: 0 20px;
-    }
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    .text-section {
-      flex: 1 1 600px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 25px;
-    }
+header {
+  background: linear-gradient(-45deg, #95dadf, #bcbce1, #ddcae0, #debbdd);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+  padding: 2rem 3rem;
+  color: #3d0d63;
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: bold;
+  box-shadow: 0 0 25px rgba(234, 94, 204, 0.279);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-    .vision-box, .mission-box {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-    }
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    .vision-box {
-      border-left: 6px solid #00bcd4;
-      box-shadow: 0 0 12px rgba(0, 188, 212, 0.2);
-    }
+h1, h2, h3, h4 {
+  font-weight: 700;
+  color: #3d0d63;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+}
 
-    .mission-box {
-      border-left: 6px solid #ff9800;
-      box-shadow: 0 0 12px rgba(255, 152, 0, 0.2);
-    }
+h1 { font-size: 2.6rem; text-align: center; }
+h2 { font-size: 2.2rem; text-align: center; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.5rem; }
 
-    .core-values {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
+p {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: #222;
+  text-align: justify;
+  letter-spacing: 0.3px;
+  word-spacing: 1px;
+}
 
-    .core-box {
-      background: linear-gradient(to top, #fdfbfb, #ebedee);
-      padding: 25px;
-      border-radius: 16px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.08);
-      max-width: 240px;
-      flex: 1 1 200px;
-      transition: transform 0.3s;
-      text-align: center;
-    }
+.company-section {
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  margin: 60px auto;
+  gap: 50px;
+  padding: 0 40px;
+}
 
-    .core-box:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(0,0,0,0.15);
-    }
+.founder-ceo-section {
+  display: flex;
+  justify-content: JUSTIFY;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+}
 
-    .core-box h4 {
-      font-size: 1.2rem;
-      color: #8e24aa;
-      margin-bottom: 10px;
-    }
+.profile-block {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 0 15px rgba(169, 91, 193, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  width: 100%;
+  font-size: 1.7rem;
+  text-align: justify;
+  transition: opacity 0.5s ease;
+  line-height: 1.8;
+}
 
-    .core-box p {
-      font-size: 0.95rem;
-      color: #333;
-    }
+.profile-block:not(.active) {
+  display: none;
+}
 
-    .slideshow {
-      flex: 1 1 400px;
-      max-width: 400px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      height: 500px;
-      position: relative;
-    }
+.profile-photo {
+  width: 595px;
+  height: 842px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
 
-    .slideshow img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
+.profile-name {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 2.8rem;
+  color: #8e24aa;
+}
 
-    .slideshow img.active {
-      opacity: 1;
-    }
+.text-section {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-    footer {
-      background: #111;
-      color: #fff;
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      opacity: 1.5;
-      overflow: hidden;
-      pointer-events: none;
-    }
+.vision-mission-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 
-    .video-bg video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.core-values {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 30px;
+}
 
-  </style>
+.core-values-heading {
+  width: 100%;
+  text-align: center;
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: #8e24aa;
+  margin-bottom: 10px;
+}
+
+.vision-box, .mission-box {
+  padding: 30px;
+  border-radius: 12px;
+  color: #000000;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+  border-left: 8px solid #ff9800;
+}
+
+.core-box {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
+  max-width: 260px;
+  flex: 1 1 220px;
+  transition: transform 0.3s;
+  text-align: center;
+}
+
+.core-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+.slideshow-toggle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.slideshow-toggle:first-child {
+  left: -60px;
+}
+
+.slideshow-toggle:last-child {
+  right: -60px;
+}
+
+footer {
+  background: #111;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 1rem;
+}
+.section-heading {
+ 
+  font-size: 2.6rem;
+  text-align: center;
+  color: #7d1b86;
+  margin: 20px 0 10px;
+  text-shadow: 0 0 8px #ffb6f2, 0 0 16px #fff0f5;
+}
+
+</style>
+
 </head>
 <body>
-  <div class="video-bg">
-    <video autoplay loop playsinline muted>
-      <source src="IMG_6607 (1).mp4" type="video/mp4">
-    </video>
-  </div>
-
   <header>Soul Sufi | Our Company</header>
 
   <section class="company-section">
-    <!-- LEFT SIDE - TEXT -->
+    <div class="founder-ceo-section">
+     
+      <div class="profile-block active" id="founder">
+        <div>
+          <img src="founder.jpeg" alt="Founder" class="profile-photo">
+          <div class="profile-name">Aditya Malviya</div>
+        </div>
+        <p><h2 class="section-heading">Founder Message</h2>
+          Soul Sufi is more than a band — it's a purpose. Every note is designed to touch hearts and connect souls. Our aim has always been to stay true to our Sufi roots while embracing modern harmonies. Music is our way to heal, to celebrate, and to unite people. I believe in the divine power of sound and silence. With every performance, we hope to leave a lasting impression of peace, depth, and beauty. Thank you for being part of our journey. Let the music flow beyond boundaries and into the hearts of millions.
+        </p>
+      </div>
+
+      <div class="profile-block" id="ceo">
+        <div>
+          <img src="ceo.jpeg" alt="CEO" class="profile-photo">
+          <div class="profile-name">Anurag Malviya</div>
+        </div>
+        <p><h2 class="section-heading">CEO Message</h2>
+          At Soul Sufi, we dream bigger every day. As CEO, my goal is to elevate our presence globally while preserving the heart of what makes our music unique. From managing talent to curating live experiences, everything is done with love and precision. Our team works relentlessly to ensure our audience gets not just a performance — but a soulful experience. We are committed to innovation, audience engagement, and global collaborations. Join us as we expand the reach of Sufi music to every corner of the world, one magical note at a time.
+        </p>
+      </div>
+      </div> <!-- this closes .founder-ceo-section -->
+
+<div style="position: relative; margin: 20px auto; width: 100%; max-width: 1400px;">
+  <button onclick="showMessage(-1)" style="position: absolute; left: -40px; top: 50%; transform: translateY(-50%); font-size: 2rem; background: none; border: none; cursor: pointer;">⬅️</button>
+  <button onclick="showMessage(1)" style="position: absolute; right: -40px; top: 50%; transform: translateY(-50%); font-size: 2rem; background: none; border: none; cursor: pointer;">➡️</button>
+</div>
+
+     
+    </div>
+
     <div class="text-section">
-      <div class="vision-box">
-        <h3 style="color: #00bcd4;">🎯 Vision</h3>
-        <p>Our <strong>vision</strong> for <strong>Soul Sufi</strong> is to become a leading voice in the global music scene, blending ancient Sufi traditions with modern-day innovation and spirit. We aim to create music that not only entertains but heals, connects, and uplifts souls across cultures.</p>
+      <div class="vision-mission-section">
+        <div class="vision-box">
+         <h2 class="section-heading vision-title">🎯 Vision</h2>
+
+          <p>Our <strong>vision</strong> for <strong>Soul Sufi</strong> is to become a leading voice in the global music scene, blending ancient Sufi traditions with modern-day innovation and spirit. We aim to create music that not only entertains but heals, connects, and uplifts souls across cultures.</p>
+        </div>
+
+        <div class="mission-box">
+          <h2 class="section-heading mission-title">🚀 Mission</h2>
+
+          <p>Our <strong>mission</strong> is to consistently create and perform <strong>innovative, high-quality music</strong> that speaks to the heart. We strive to preserve the essence of Sufi poetry while introducing it to newer generations in refreshing, soulful formats—both live and digital.</p>
+        </div>
+        
+
       </div>
 
-      <div class="mission-box">
-        <h3 style="color: #ff9800;">🚀 Mission</h3>
-        <p>Our <strong>mission</strong> is to consistently create and perform <strong>innovative, high-quality music</strong> that speaks to the heart. We strive to preserve the essence of Sufi poetry while introducing it to newer generations in refreshing, soulful formats—both live and digital.</p>
-      </div>
-
-      <h3 style="color: #8e24aa; text-align: center;">💎 Core Values</h3>
       <div class="core-values">
+        <div class="core-values-heading">💎 Core Values</div>
+      
         <div class="core-box">
           <h4>Authenticity</h4>
           <p>Genuine self-expression in every note and lyric.</p>
@@ -191,14 +287,6 @@
         </div>
       </div>
     </div>
-
-    <!-- RIGHT SIDE - SLIDESHOW -->
-    <div class="slideshow" id="slideshow">
-      <img src="image 1.jpg" class="active" alt="Slide 1">
-      <img src="image 2.jpg" alt="Slide 2">
-      <img src="image 3.jpeg" alt="Slide 3">
-      <img src="image 4.jpeg" alt="Slide 4">
-    </div>
   </section>
 
   <footer>
@@ -206,15 +294,22 @@
   </footer>
 
   <script>
-    // JS slideshow logic
-    const slides = document.querySelectorAll("#slideshow img");
-    let current = 0;
+    let currentMessage = 0;
+  const messages = ["founder", "ceo"];
 
-    setInterval(() => {
-      slides[current].classList.remove("active");
-      current = (current + 1) % slides.length;
-      slides[current].classList.add("active");
-    }, 4000); // Change every 4 seconds
+  function showMessage(direction) {
+    const current = document.getElementById(messages[currentMessage]);
+    current.classList.remove("active");
+
+    currentMessage = (currentMessage + direction + messages.length) % messages.length;
+
+    const next = document.getElementById(messages[currentMessage]);
+    next.classList.add("active");
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("founder").classList.add("active");
+  });
   </script>
 </body>
 </html>

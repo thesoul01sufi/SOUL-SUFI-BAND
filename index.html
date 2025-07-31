@@ -660,151 +660,65 @@
   .service-box:hover {
     transform: scale(1.05);
   }
-  @media screen and (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
+ /* Mobile adjustments */
+/* 🌐 Global mobile responsiveness */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 0 10px;
   }
 
-  .logo {
-    width: 140px;
-    height: 140px;
-  }
-
-   .nav-menu {
-    flex-direction: row;  /* ✅ Stay horizontal */
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    font-size: 1.1rem;
-    padding: 10px;
-  }
-  .nav-ellipse {
-    padding: 8px 16px;
-    border-radius: 30px;
-  }
-
-  .band-title {
-    font-size: 2.4rem;
+  h1, h2, h3 {
+    font-size: 1.5rem !important;
     text-align: center;
   }
 
-  .tagline {
-    font-size: 1.4rem;
-    max-width: 95vw;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid #b0d8e9;
-    width: 0;
-    animation: typing 6s steps(60, end) forwards, blink 0.75s step-end infinite;
-  }
-
-  .about-section {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    gap: 30px;
-  }
-
-  .about-text {
-    text-align: center;
-    flex: 1 1 100%;
-  }
-
-  .about-video {
-    flex: 1 1 100%;
-    justify-content: center;
-  }
-
-  .about-video video {
-    width: 90vw;
-    height: auto;
-  }
-
-  .passport-photo-strip {
-    flex-direction: column;
-    height: auto;
-    padding: 20px 0;
-  }
-
-  .passport-track {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .passport-track img {
-    width: 140px;
-    height: 180px;
-    margin: 5px;
-  }
-
-  .wave-timeline {
-    flex-direction: column;
-    gap: 50px;
-    padding: 40px 20px;
-    align-items: center;
-  }
-
-  .wave-block {
-    width: 90%;
-    margin: 0;
-  }
-
-  .services-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .service-box {
-    width: 90%;
-    height: auto;
-    padding: 20px;
-    font-size: 1rem;
-  }
- 
-
-
-  footer {
-    text-align: center;
-  }
-
-  footer > div {
-    flex-direction: column;
-    gap: 30px;
-    padding: 20px;
-  }
-
-  footer img {
+  .container, .about-section, .service-box {
+    width: 100% !important;
+    padding: 10px !important;
     margin: auto;
   }
 
-  .dropdown-menu {
-    position: static;
-    background-color: transparent;
-    box-shadow: none;
-    border: none;
+  .services-container {
+    flex-direction: column !important;
+    align-items: center !important;
   }
-}
 
+  .service-box {
+    width: 90% !important;
+    margin: 10px 0 !important;
+  }
 
-@media screen and (max-width: 768px) {
   footer > div {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex-direction: column !important;
+    text-align: center !important;
   }
 
   footer ul {
     flex-direction: column !important;
-    align-items: center;
+    align-items: center !important;
+    gap: 8px;
+    overflow-x: auto;
+  white-space: nowrap;
+
   }
 
-  footer ul li {
-    margin-bottom: 6px;
+  footer img {
+    width: 100px !important;
+    height: auto !important;
+    margin-bottom: 10px;
+  }
+
+  .video-bg, .background-watermark-slideshow {
+    object-position: center !important;
+  }
+
+  nav ul {
+    flex-direction: column !important;
+    gap: 10px;
   }
 }
+
 
 
 </style>
@@ -1033,7 +947,8 @@
   <div style="max-width: 1200px; margin: auto;">
 
     <!-- 🔹 FOUR COLUMNS: IN A ROW -->
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; text-align: center;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 20px; ...">
+
 
       <!-- 🌟 WHERE WE OFFER -->
       <div style="flex: 1 1 220px; min-width: 180px;">

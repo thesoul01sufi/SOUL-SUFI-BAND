@@ -79,10 +79,10 @@ p {
 
 .founder-ceo-section {
   display: flex;
-  justify-content: JUSTIFY;
+  justify-content: space-between;
   align-items: center;
-  gap: 60px;
-  position: relative;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
 .profile-block {
@@ -90,24 +90,23 @@ p {
   padding: 30px;
   border-radius: 30px;
   box-shadow: 0 0 15px rgba(169, 91, 193, 0.1);
-  display: flex;
-  justify-content: space-between;
+  display: none;
+  flex-direction: row;
   align-items: flex-start;
   gap: 30px;
   width: 100%;
   font-size: 1.7rem;
   text-align: justify;
-  transition: opacity 0.5s ease;
   line-height: 1.8;
 }
 
-.profile-block:not(.active) {
-  display: none;
+.profile-block.active {
+  display: flex;
 }
 
 .profile-photo {
-  width: 595px;
-  height: 842px;
+  width: 300px;
+  height: auto;
   border-radius: 20px;
   object-fit: cover;
   box-shadow: 0 0 12px rgba(0,0,0,0.2);
@@ -117,7 +116,7 @@ p {
   text-align: center;
   font-weight: bold;
   margin-top: 10px;
-  font-size: 2.8rem;
+  font-size: 2rem;
   color: #8e24aa;
 }
 
@@ -179,22 +178,6 @@ p {
   box-shadow: 0 0 20px rgba(0,0,0,0.15);
 }
 
-.slideshow-toggle {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2.5rem;
-  cursor: pointer;
-}
-
-.slideshow-toggle:first-child {
-  left: -60px;
-}
-
-.slideshow-toggle:last-child {
-  right: -60px;
-}
-
 footer {
   background: #111;
   color: #fff;
@@ -202,8 +185,8 @@ footer {
   text-align: center;
   font-size: 1rem;
 }
+
 .section-heading {
- 
   font-size: 2.6rem;
   text-align: center;
   color: #7d1b86;
@@ -211,64 +194,63 @@ footer {
   text-shadow: 0 0 8px #ffb6f2, 0 0 16px #fff0f5;
 }
 
-</style>
+@media (max-width: 768px) {
+  .founder-ceo-section {
+    flex-direction: column;
+  }
 
+  .profile-photo {
+    width: 100%;
+  }
+}
+  </style>
 </head>
 <body>
   <header>Soul Sufi | Our Company</header>
-
   <section class="company-section">
     <div class="founder-ceo-section">
-     
       <div class="profile-block active" id="founder">
         <div>
           <img src="founder.jpeg" alt="Founder" class="profile-photo">
           <div class="profile-name">Aditya Malviya</div>
         </div>
-        <p><h2 class="section-heading">Founder Message</h2>
-          Soul Sufi is more than a band — it's a purpose. Every note is designed to touch hearts and connect souls. Our aim has always been to stay true to our Sufi roots while embracing modern harmonies. Music is our way to heal, to celebrate, and to unite people. I believe in the divine power of sound and silence. With every performance, we hope to leave a lasting impression of peace, depth, and beauty. Thank you for being part of our journey. Let the music flow beyond boundaries and into the hearts of millions.
-        </p>
+        <div>
+          <h2 class="section-heading">Founder Message</h2>
+          <p>Soul Sufi is more than a band — it's a purpose. Every note is designed to touch hearts and connect souls. Our aim has always been to stay true to our Sufi roots while embracing modern harmonies. Music is our way to heal, to celebrate, and to unite people. I believe in the divine power of sound and silence. Thank you for being part of our journey.</p>
+        </div>
       </div>
 
       <div class="profile-block" id="ceo">
         <div>
           <img src="ceo.jpeg" alt="CEO" class="profile-photo">
-          <div class="profile-name">Anurag Malviya</div>
+          <div class="profile-name">Anurag (Percussionist)</div>
         </div>
-        <p><h2 class="section-heading">CEO Message</h2>
-          At Soul Sufi, we dream bigger every day. As CEO, my goal is to elevate our presence globally while preserving the heart of what makes our music unique. From managing talent to curating live experiences, everything is done with love and precision. Our team works relentlessly to ensure our audience gets not just a performance — but a soulful experience. We are committed to innovation, audience engagement, and global collaborations. Join us as we expand the reach of Sufi music to every corner of the world, one magical note at a time.
-        </p>
+        <div>
+          <h2 class="section-heading">CEO Message</h2>
+          <p>At Soul Sufi, we dream bigger every day. As CEO, my goal is to elevate our presence globally while preserving the heart of what makes our music unique. From managing talent to curating live experiences, everything is done with precision. Our team works relentlessly to ensure our audience gets not just a performance — but a soulful experience.</p>
+        </div>
       </div>
-      </div> <!-- this closes .founder-ceo-section -->
 
-<div style="position: relative; margin: 20px auto; width: 100%; max-width: 1400px;">
-  <button onclick="showMessage(-1)" style="position: absolute; left: -40px; top: 50%; transform: translateY(-50%); font-size: 2rem; background: none; border: none; cursor: pointer;">⬅️</button>
-  <button onclick="showMessage(1)" style="position: absolute; right: -40px; top: 50%; transform: translateY(-50%); font-size: 2rem; background: none; border: none; cursor: pointer;">➡️</button>
-</div>
-
-     
+      <div style="position: relative; margin: 20px auto; width: 100%; max-width: 1400px; text-align: center;">
+        <button onclick="showMessage(1)" style="font-size: 1.5rem; padding: 10px 20px; border-radius: 8px; background: #8e24aa; color: white; border: none; cursor: pointer;">Next ➡️</button>
+      </div>
     </div>
 
     <div class="text-section">
       <div class="vision-mission-section">
         <div class="vision-box">
          <h2 class="section-heading vision-title">🎯 Vision</h2>
-
-          <p>Our <strong>vision</strong> for <strong>Soul Sufi</strong> is to become a leading voice in the global music scene, blending ancient Sufi traditions with modern-day innovation and spirit. We aim to create music that not only entertains but heals, connects, and uplifts souls across cultures.</p>
+         <p>Our <strong>vision</strong> for <strong>Soul Sufi</strong> is to become a leading voice in the global music scene, blending ancient Sufi traditions with modern-day innovation and spirit. We aim to create music that not only entertains but heals, connects, and uplifts souls across cultures.</p>
         </div>
 
         <div class="mission-box">
           <h2 class="section-heading mission-title">🚀 Mission</h2>
-
           <p>Our <strong>mission</strong> is to consistently create and perform <strong>innovative, high-quality music</strong> that speaks to the heart. We strive to preserve the essence of Sufi poetry while introducing it to newer generations in refreshing, soulful formats—both live and digital.</p>
         </div>
-        
-
       </div>
 
       <div class="core-values">
         <div class="core-values-heading">💎 Core Values</div>
-      
         <div class="core-box">
           <h4>Authenticity</h4>
           <p>Genuine self-expression in every note and lyric.</p>
@@ -288,28 +270,22 @@ footer {
       </div>
     </div>
   </section>
-
   <footer>
     <p>&copy; 2025 Soul Sufi Band. All rights reserved.</p>
   </footer>
-
   <script>
     let currentMessage = 0;
-  const messages = ["founder", "ceo"];
-
-  function showMessage(direction) {
-    const current = document.getElementById(messages[currentMessage]);
-    current.classList.remove("active");
-
-    currentMessage = (currentMessage + direction + messages.length) % messages.length;
-
-    const next = document.getElementById(messages[currentMessage]);
-    next.classList.add("active");
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("founder").classList.add("active");
-  });
+    const messages = ["founder", "ceo"];
+    function showMessage(direction) {
+      const current = document.getElementById(messages[currentMessage]);
+      current.classList.remove("active");
+      currentMessage = (currentMessage + direction + messages.length) % messages.length;
+      const next = document.getElementById(messages[currentMessage]);
+      next.classList.add("active");
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("founder").classList.add("active");
+    });
   </script>
 </body>
 </html>

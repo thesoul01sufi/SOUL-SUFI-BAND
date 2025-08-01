@@ -233,8 +233,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 25px; /* 👈 This adds the gap between About and Video */
+  align-items: center;
+  gap: 30px; /* 👈 This adds the gap between About and Video */
   border: none;
   box-shadow: none;
 }
@@ -278,8 +278,8 @@
 .about-video {
   flex: 1 1 50%;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-video video {
@@ -780,6 +780,44 @@
   justify-content: center !important;
   gap: 15px !important;
 }
+.about-section {
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.about-text {
+  padding-right: 0 !important;
+  text-align: center !important;
+}
+
+.about-video {
+  justify-content: center !important;
+  padding-top: 20px;
+}
+
+.about-video video {
+  width: 90vw !important;
+  max-width: 360px;
+  height: auto;
+}
+.tagline {
+    font-size: 1.4rem !important;
+    white-space: normal !important;
+    width: 100% !important;
+    border-right: none !important;
+    animation: none !important;
+    text-align: center !important;
+  }
+
+  .band-title {
+    font-size: 3rem !important;
+    text-align: center !important;
+  }
+
+  .main-content {
+    padding: 10px !important;
+  }
 
 
 
@@ -987,16 +1025,7 @@
       </div>
       
   </div>
-  <img src="live band 5.jpeg" 
-style="
-  width: 350px;
-  max-width: 100%;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-  margin: 20px auto;
-  display: block;
-" />
+  
       
 </div>
 

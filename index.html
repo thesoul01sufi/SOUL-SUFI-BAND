@@ -667,18 +667,32 @@
   }
  /* Mobile adjustments */
 /* 🌐 Global mobile responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 768px) 
+{
+
+.logo {
+  width: 120px !important;
+  height: 120px !important;
+  margin-bottom: 10px;
+  display: block;
+}
 
 
 .services-container {
-    flex-direction: column !important;
-    align-items: center !important;
-  }
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 20px !important;
+  justify-items: center !important;
+  padding: 10px 20px !important;
+}
 
-  .service-box {
-    width: 90% !important;
-    margin: 10px auto !important;
-  }
+
+ .service-box {
+  width: 100% !important;
+  max-width: 90vw !important;
+  margin: 0 auto !important;
+}
+
 
   img[alt="Sufi Band"] {
     display: none !important;
@@ -761,10 +775,11 @@
     object-position: center !important;
   }
 
-  nav ul {
-    flex-direction: column !important;
-    gap: 10px;
-  }
+ .nav-menu {
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 15px !important;
+}
 
 
 

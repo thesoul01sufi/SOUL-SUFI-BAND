@@ -1099,6 +1099,19 @@
       height: 28px !important;
       vertical-align: middle;
     }
+    .dropdown-menu {
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  display: flex;
+}
+
+.dropdown.show .dropdown-menu {
+  max-height: 300px; /* Enough for your links */
+  opacity: 1;
+}
+
   
   /* === ABOUT SECTION: Side-by-side for desktop, stacked for mobile === */
 .about-section {
@@ -1694,13 +1707,18 @@
 
   // Close menu on any nav link click
   navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
+  link.addEventListener('click', (e) => {
+    const isInsideDropdown = link.closest('.dropdown-menu');
+    if (!isInsideDropdown) {
       navMenu.classList.remove('nav-mobile-show');
       overlay.classList.remove('active');
       menuToggle.setAttribute('aria-expanded', false);
       mainContent.style.marginTop = '0';
-    });
+      dropdown.classList.remove('show'); // also close dropdown
+    }
   });
+});
+
 
   // ==============================
   // Dropdown Toggle Functionality

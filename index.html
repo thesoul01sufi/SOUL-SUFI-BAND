@@ -360,17 +360,28 @@
     }
 
     .dropdown-menu {
-      position: absolute;
-      background-color: #0b0014;
-      border: 1px solid #ffd700;
-      border-radius: 8px;
-      padding: 10px;
-      display: none;
-      flex-direction: column;
-      top: 30px;
-      left: 0;
-      z-index: 999;
-    }
+  position: absolute;
+  background-color: #0b0014;
+  border: 1px solid #ffd700;
+  border-radius: 8px;
+  padding: 10px;
+  flex-direction: column;
+  top: 30px;
+  left: 0;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition:  visibility 10.00s ease;
+  pointer-events: none;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+  opacity: 3;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 
     .dropdown-menu li {
       list-style: none;
@@ -391,12 +402,11 @@
       color: #ffd700;
       text-shadow: 0 0 15px #ffd700, 0 0 30px #ff00cc;
       transform: scale(1.05);
-    }
-
-
-    .dropdown:hover .dropdown-menu {
       display: flex;
     }
+
+
+    
 
     .photo-slideshow {
       margin-top: 30px;
@@ -1625,6 +1635,7 @@
             <li><a href="testimonials.html" style="color: #ffefb0; text-decoration: none;">Testimonials</a></li>
             <li><a href="livebands.html" style="color: #ffefb0; text-decoration: none;">Live Bands</a></li>
             <li><a href="#contact" style="color: #ffefb0; text-decoration: none;">Contact</a></li>
+            <li><a href="privacy-rights.html" style="color: #ffefb0; text-decoration: none;">Contact</a></li>
           </ul>
         </div>
 

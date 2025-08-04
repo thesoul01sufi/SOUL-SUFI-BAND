@@ -1404,6 +1404,11 @@
     <h1 class="band-title">The Soul Sufi</h1>
     <p class="tagline">A journey of sound and soul — where Sufi meets celebration and music meets meaning.</p>
   </div>
+  <div class="nav-buttons">
+          <p>🎤 Step into the rhythm — tap the buttons and feel our vibe 🎶 -></p>
+  <button onclick="location.href='testimonials.html'">Testimonials</button>
+  <button onclick="location.href='livebands.html'">Live Band</button>
+</div>
 
   <div class="passport-photo-strip">
     <div class="passport-track">
@@ -1454,11 +1459,7 @@
         term describes a style that blends the devotional and mystical aspects of Sufism with soulful vocal delivery and
         diverse instrumentation. </p>
 
-         <div class="nav-buttons">
-          <p>🎤 Step into the rhythm — tap the buttons and feel our vibe 🎶 -></p>
-  <button onclick="location.href='testimonials.html'">Testimonials</button>
-  <button onclick="location.href='livebands.html'">Live Band</button>
-</div>
+         
 
       <ul class="instrument-list">
         <li><strong>Vocals:</strong> Lead and chorus.</li>
@@ -1684,12 +1685,12 @@
         <!-- 📞 CONTACT -->
         <div id="footer-contact" style="flex: 1 1 200px; min-width: 160px;">
           <h3 style="color: #00ffff; margin-bottom: 10px; text-shadow: 0 0 6px #00ffff;">Contact</h3>
-          <p style="margin: 6px 0; font-size: 0.85rem;"><strong>Owner:</strong><br><a href="tel:+916307532084"
+          <p style="margin: 6px 0; font-size: 0.85rem;"><strong>Owner:</strong><br><a href="tel: +9191402792114"
               style="color:#fff;">+91 91402 792114</a></p>
-          <p style="margin: 6px 0; font-size: 0.85rem;"><strong>CEO:</strong><br><a href="tel:+9191402792114"
+          <p style="margin: 6px 0; font-size: 0.85rem;"><strong>CEO:</strong><br><a href="tel: +916307532084"
               style="color:#fff;">+91 63075 32084</a></p>
           <p style="margin: 6px 0; font-size: 0.85rem;"><strong>Email:</strong><br><a
-              href="mailto:thesoulsufi.official01@gmail.com" style="color:#fff;">thesoulsufi.01@gmail.com</a></p>
+              href="mailto:thesoulsufi.official01@gmail.com" style="color:#fff;">thesoulsufi.official01@gmail.com</a></p>
         </div>
       </div>
 
@@ -1702,13 +1703,13 @@
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+   document.addEventListener('DOMContentLoaded', function () {
   const menuToggle = document.querySelector('.mobile-menu-toggle');
   const navMenu = document.querySelector('.nav-menu');
   const overlay = document.querySelector('.nav-overlay');
   const mainContent = document.querySelector('.main-content');
 
-  // Mobile Menu Toggle
+  // Mobile nav toggle
   menuToggle.addEventListener('click', function () {
     const expanded = this.getAttribute('aria-expanded') === 'true';
     this.setAttribute('aria-expanded', !expanded);
@@ -1721,7 +1722,7 @@
     }
   });
 
-  // Close menu on overlay click
+  // Close mobile menu when overlay is clicked
   overlay.addEventListener('click', function () {
     navMenu.classList.remove('nav-mobile-show');
     overlay.classList.remove('active');
@@ -1729,42 +1730,27 @@
     mainContent.style.marginTop = '0';
   });
 
-  // Close menu on any nav link click
+  // Handle closing nav on normal link click
   navMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', (e) => {
     const isInsideDropdown = link.closest('.dropdown-menu');
     if (!isInsideDropdown) {
-      navMenu.classList.remove('nav-mobile-show');
-      overlay.classList.remove('active');
-      menuToggle.setAttribute('aria-expanded', false);
-      mainContent.style.marginTop = '0';
-      dropdown.classList.remove('show'); // also close dropdown
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('nav-mobile-show');
+        overlay.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', false);
+        mainContent.style.marginTop = '0';
+      });
     }
   });
-});
 
-
-  // ==============================
-  // Dropdown Toggle Functionality
-  // ==============================
-
+  // ✅ Fix: Dropdown toggle on mobile click
   const dropdownToggle = document.querySelector('.dropdown-toggle');
   const dropdown = document.querySelector('.dropdown');
-  const allNavItems = document.querySelectorAll('.nav-menu > li');
 
   if (dropdownToggle && dropdown) {
     dropdownToggle.addEventListener('click', function (e) {
-      e.stopPropagation(); // prevent body click from firing
+      e.stopPropagation();
       dropdown.classList.toggle('show');
-    });
-
-    // Close dropdown when any other nav item is clicked
-    allNavItems.forEach(item => {
-      if (!item.classList.contains('dropdown')) {
-        item.addEventListener('click', () => {
-          dropdown.classList.remove('show');
-        });
-      }
     });
 
     // Close dropdown when clicking outside

@@ -383,6 +383,25 @@
   display: flex;
 }
 
+.dropdown-menu li {
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3); /* subtle gold line */
+}
+
+.dropdown-menu li:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+@media screen and (max-width: 768px) {
+  .dropdown-menu {
+    position: relative;
+    top: auto;
+    left: auto;
+    box-shadow: none;
+  }
+}
 
 
 
@@ -1169,20 +1188,24 @@
 
 @media (min-width: 769px) {
   header {
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding-top: 35px !important;      /* Increased top padding */
-    padding-bottom: 18px;              /* Optional: bottom spacing */
-    padding-left: 32px;
-    padding-right: 32px;
-  }
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding-top: 35px !important;
+  padding-bottom: 18px;
+  padding-left: 32px;
+  padding-right: 32px;
+  gap: 40px; /* ✅ Add space between logo and nav */
+}
+
   .logo {
     margin-right: auto !important;
     margin-left: 0 !important;
     display: block;
   }
   .nav-menu {
+    flex: 1;
+     justify-content: flex-end;
     display: flex !important;
     font-size: 1.5rem !important;
     flex-direction: row !important;
@@ -1405,7 +1428,7 @@
       <img src="slideshow 5.jpeg" alt="5" />
       <img src="slideshow 6.jpeg" alt="6" />
       <img src="slideshow 7.jpeg" alt="7" />
-      <img src="slideshow 8.jpeg" alt="8" />
+      <img src="slideshow 8.jpg" alt="8" />
       <img src="slideshow 9.jpeg" alt="9" />
       <img src="slideshow 10.jpeg" alt="10" />
       <img src="slideshow 11.jpeg" alt="11" />
@@ -1604,16 +1627,17 @@
 
         <!-- 🌟 WHERE WE OFFER -->
         <div
-          style="flex: 1 1 220px; min-width: 180px; display: flex; align-items: flex-start; gap: 16px; margin-top: 22px;">
-          <div style="display: flex; flex-direction: column; align-items: center; min-width:60px;">
-            <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 3px solid #ffd700;">
-              <img src="logo.png" alt="Soul Sufi Logo" style="width: 150%; height: 150%; object-fit: cover;">
+          style="flex: 1 1 220px; min-width: 100px; display: flex; align-items: flex-start; gap: 10px; margin-top: 22px;">
+          <div style="display: center; flex-direction: column; align-items: center; min-width:120px;">
+            <div style="width: 120px; height: 120px; border-radius: 100%; overflow: hidden; ">
+              <img src="logo.png" alt="Soul Sufi Logo" style="width: 100%; height: 100%; object-fit: contain;">
             </div>
-            <h3 style="color: #ffef00; margin: 7px 0 0 0; text-shadow: 0 0 5px #ffef00; font-size:1.05rem;">Soul Sufi
-            </h3>
+            
+            
           </div>
           <div style="align-self: flex-start;">
             <ul style="list-style: none; padding: 0; font-size: 0.85rem; color: #e0e0e0; line-height: 1.6; margin:0;">
+              <h3 style="color: #c67ad5;  margin: 15PX 0 0; "> PERKS:</h3>
               <li>🎉 Weddings</li>
               <li>🏢 Corporate Events</li>
               <li>🏫 College Fests</li>
@@ -1627,7 +1651,7 @@
 
         <!-- 🔗 QUICK LINKS -->
         <div style="flex: 1 1 180px; min-width: 160px;">
-          <h3 style="color: #00ffe7; margin-bottom: 10px; text-shadow: 0 0 8px #00ffe7;">Quick Links</h3>
+          <h3 style="color: #00ffe7; margin-bottom: 12px; text-shadow: 0 0 8px #00ffe7;">Quick Links</h3>
           <ul style="list-style: none; padding: 0; font-size: 0.85rem; line-height: 1.8;">
             <li><a href="our-company.html" style="color: #ffefb0; text-decoration: none;">Our Company</a></li>
             <li><a href="testimonials.html" style="color: #ffefb0; text-decoration: none;">Testimonials</a></li>
@@ -1644,7 +1668,7 @@
             <a href="https://www.instagram.com/thesoulsufi_0.1" target="_blank" style="margin: 0 6px;">
               <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="18" height="16" alt="Instagram">
             </a>
-            <a href="mailto:thesoulsufi.01@gmail.com" style="margin: 0 6px;">
+            <a href="mailto:thesoulsufi.official01@gmail.com" style="margin: 0 6px;">
               <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="18" height="16" alt="Email">
             </a>
             <a href="https://wa.me/918765011548" target="_blank" style="margin: 0 6px;">
